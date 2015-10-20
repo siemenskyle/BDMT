@@ -4,32 +4,15 @@ using System.Collections;
 public class birdhit : MonoBehaviour {
     Rigidbody2D rbody;
     CircleCollider2D coll;
+	public float x;
+	public float y;
     // Use this for initialization
-    void Start () {
-        rbody = GetComponent<Rigidbody2D>();
-        coll = GetComponent<CircleCollider2D>();
-    }
-	
-	// Update is called once per frame
-	void Update () {
-        if (coll.gameObject.tag == "racket")
-        {
 
-
-            rbody.AddForce(new Vector2(10,10));
-
-
-
-
-        }
-
-    }
-    public class hit : MonoBehaviour
+    void OnTriggerEnter2D(Collider2D coll)
     {
-        public bool birdhit;
-        void OnTriggerEnter2D(Collider2D hit)
-        {
-            birdhit = true;
-        }
+		Rigidbody2D bird = coll.attachedRigidbody;
+		float angle = -1 * transform.rotation.z;
+		float forcemult = (angle / 100 + 1) * 1.2f; 
+		bird.AddForce (new Vector2 (x * forcemult, y * 1/forcemult));
     }
 }
