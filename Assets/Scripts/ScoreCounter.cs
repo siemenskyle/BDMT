@@ -14,8 +14,13 @@ public class ScoreCounter : MonoBehaviour {
     {
         if (other.name.Contains("grass"))
         {
-            if (gameObject.transform.position.x < 0) rightScore++;
-            else if (gameObject.transform.position.x > 0) leftScore++;
+			print(transform.position.x);
+            if ((transform.position.x < 0 && transform.position.x >= -18) 
+			    ||  transform.position.x > 18) 
+					rightScore++;
+            else if ((transform.position.x > 0 && transform.position.x <= 18) 
+			    || transform.position.x < -18) 
+					leftScore++;
           }
         print("TRIGGER");
 

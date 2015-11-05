@@ -10,9 +10,16 @@ public class birdhit : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D coll)
     {
+		// Bird is only thing this can collide with now that we fixed it
 		Rigidbody2D bird = coll.attachedRigidbody;
-		float angle = -1 * transform.rotation.z;
-		float forcemult = (angle / 100 + 1) * 1.2f; 
-		bird.AddForce (new Vector2 (x * forcemult, y * 1/forcemult));
+
+		bird.velocity = Vector2.zero;
+
+		// Flip x force if on other side
+		//x = -x * Mathf.Sign (transform.position.x);
+		//print (x + ", " + y);
+		// Add the force
+		bird.AddForce (new Vector2 (x, y));
+		this.enabled = false;
     }
 }
