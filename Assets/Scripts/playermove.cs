@@ -4,6 +4,7 @@ using System.Collections;
 public class playermove : MonoBehaviour {
 
 	public float speed;
+    public float speedSprint;
 	public float jumpforce;
 	public KeyCode left;
 	public KeyCode right;
@@ -11,6 +12,7 @@ public class playermove : MonoBehaviour {
 	public KeyCode down;
 	public KeyCode jump;
 	public KeyCode hit;
+    public KeyCode sprint;
 	Rigidbody2D rbody;
 	BoxCollider2D coll;
 	Animator ator;
@@ -27,13 +29,19 @@ public class playermove : MonoBehaviour {
 	void Update () {
 		// Move Left
 		if (Input.GetKey (left)) {
-			transform.Translate (Vector3.left * speed * Time.deltaTime);
+            if(Input.GetKey (sprint))
+                transform.Translate(Vector3.left * speedSprint * Time.deltaTime);
+            else
+                transform.Translate (Vector3.left * speed * Time.deltaTime);
 			ator.SetBool("running", true);
 
 		}
 		// Move Right
 		else if (Input.GetKey (right)) {
-			transform.Translate (Vector3.right * speed * Time.deltaTime);
+            if (Input.GetKey(sprint))
+                transform.Translate(Vector3.right * speedSprint * Time.deltaTime);
+            else
+                transform.Translate (Vector3.right * speed * Time.deltaTime);
 			ator.SetBool("running", true);
 		}
 		else {
