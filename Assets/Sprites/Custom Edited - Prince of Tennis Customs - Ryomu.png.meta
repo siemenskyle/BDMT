@@ -1,0 +1,690 @@
+fileFormatVersion: 2
+guid: 2fd5e9f88677494448d6d3dca37dded6
+timeCreated: 1447127460
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: idle1
+    21300002: idle2
+    21300004: idle3
+    21300006: Custom Edited - Prince of Tennis Customs - Ryomu_3
+    21300008: Custom Edited - Prince of Tennis Customs - Ryomu_4
+    21300010: Custom Edited - Prince of Tennis Customs - Ryomu_5
+    21300012: Custom Edited - Prince of Tennis Customs - Ryomu_6
+    21300014: over1
+    21300016: over2
+    21300018: over3
+    21300020: Custom Edited - Prince of Tennis Customs - Ryomu_10
+    21300022: Custom Edited - Prince of Tennis Customs - Ryomu_11
+    21300024: Custom Edited - Prince of Tennis Customs - Ryomu_12
+    21300026: Custom Edited - Prince of Tennis Customs - Ryomu_13
+    21300028: Custom Edited - Prince of Tennis Customs - Ryomu_14
+    21300030: Custom Edited - Prince of Tennis Customs - Ryomu_15
+    21300032: Custom Edited - Prince of Tennis Customs - Ryomu_16
+    21300034: Custom Edited - Prince of Tennis Customs - Ryomu_17
+    21300036: over4
+    21300038: Custom Edited - Prince of Tennis Customs - Ryomu_19
+    21300040: Custom Edited - Prince of Tennis Customs - Ryomu_20
+    21300042: run1
+    21300044: run2
+    21300046: run3
+    21300048: run4
+    21300050: run5
+    21300052: run6
+    21300054: Custom Edited - Prince of Tennis Customs - Ryomu_27
+    21300056: Custom Edited - Prince of Tennis Customs - Ryomu_28
+    21300058: Custom Edited - Prince of Tennis Customs - Ryomu_29
+    21300060: Custom Edited - Prince of Tennis Customs - Ryomu_30
+    21300062: Custom Edited - Prince of Tennis Customs - Ryomu_31
+    21300064: Custom Edited - Prince of Tennis Customs - Ryomu_32
+    21300066: Custom Edited - Prince of Tennis Customs - Ryomu_33
+    21300068: Custom Edited - Prince of Tennis Customs - Ryomu_34
+    21300070: straight1
+    21300072: straight1
+    21300074: straight2
+    21300076: straight3
+    21300078: straight4
+    21300080: straight5
+    21300082: Custom Edited - Prince of Tennis Customs - Ryomu_41
+    21300084: run1
+    21300086: run2
+    21300088: run3
+    21300090: run4
+    21300092: run5
+    21300094: run6
+    21300096: Custom Edited - Prince of Tennis Customs - Ryomu_48
+    21300098: under1
+    21300100: under3
+    21300102: Custom Edited - Prince of Tennis Customs - Ryomu_51
+    21300104: Custom Edited - Prince of Tennis Customs - Ryomu_52
+    21300106: Custom Edited - Prince of Tennis Customs - Ryomu_53
+    21300108: Custom Edited - Prince of Tennis Customs - Ryomu_54
+    21300110: Custom Edited - Prince of Tennis Customs - Ryomu_55
+    21300112: Custom Edited - Prince of Tennis Customs - Ryomu_56
+    21300114: Custom Edited - Prince of Tennis Customs - Ryomu_57
+    21300116: Custom Edited - Prince of Tennis Customs - Ryomu_58
+    21300118: Custom Edited - Prince of Tennis Customs - Ryomu_59
+    21300120: Custom Edited - Prince of Tennis Customs - Ryomu_60
+    21300122: Custom Edited - Prince of Tennis Customs - Ryomu_61
+    21300124: Custom Edited - Prince of Tennis Customs - Ryomu_62
+    21300126: Custom Edited - Prince of Tennis Customs - Ryomu_63
+    21300128: Custom Edited - Prince of Tennis Customs - Ryomu_64
+    21300130: Custom Edited - Prince of Tennis Customs - Ryomu_65
+    21300132: Custom Edited - Prince of Tennis Customs - Ryomu_66
+    21300134: idle1
+    21300136: idle2
+    21300138: idle3
+    21300140: over1
+    21300142: over2
+    21300144: over3
+    21300146: over4
+    21300148: straight2
+    21300150: straight3
+    21300152: straight4
+    21300154: straight5
+    21300156: straight6
+    21300158: Custom Edited - Prince of Tennis Customs - Ryomu_42
+    21300160: Custom Edited - Prince of Tennis Customs - Ryomu_43
+    21300162: Custom Edited - Prince of Tennis Customs - Ryomu_44
+    21300164: Custom Edited - Prince of Tennis Customs - Ryomu_45
+    21300166: Custom Edited - Prince of Tennis Customs - Ryomu_46
+    21300168: Custom Edited - Prince of Tennis Customs - Ryomu_47
+    21300170: idle1
+    21300172: idle2
+    21300174: idle3
+    21300176: straight1
+    21300178: straight2
+    21300180: straight3
+    21300182: straight4
+    21300184: straight5
+    21300186: straight6
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 11
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: idle1
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 346
+        width: 34
+        height: 50
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: idle2
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 346
+        width: 34
+        height: 49
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: idle3
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 346
+        width: 33
+        height: 48
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom Edited - Prince of Tennis Customs - Ryomu_3
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 279
+        width: 24
+        height: 50
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom Edited - Prince of Tennis Customs - Ryomu_4
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 279
+        width: 24
+        height: 50
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom Edited - Prince of Tennis Customs - Ryomu_5
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 324
+        width: 7
+        height: 7
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom Edited - Prince of Tennis Customs - Ryomu_6
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 328
+        width: 7
+        height: 7
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: over1
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 278
+        width: 31
+        height: 55
+      alignment: 9
+      pivot: {x: .600000024, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: over2
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 279
+        width: 41
+        height: 51
+      alignment: 9
+      pivot: {x: .629999995, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: over3
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 282
+        width: 46
+        height: 49
+      alignment: 9
+      pivot: {x: .300000012, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom Edited - Prince of Tennis Customs - Ryomu_10
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 325
+        width: 10
+        height: 11
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom Edited - Prince of Tennis Customs - Ryomu_11
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 320
+        width: 10
+        height: 11
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom Edited - Prince of Tennis Customs - Ryomu_14
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 278
+        width: 24
+        height: 50
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom Edited - Prince of Tennis Customs - Ryomu_15
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 278
+        width: 24
+        height: 50
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom Edited - Prince of Tennis Customs - Ryomu_16
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 277
+        width: 24
+        height: 50
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom Edited - Prince of Tennis Customs - Ryomu_17
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 277
+        width: 47
+        height: 50
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: over4
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 274
+        width: 35
+        height: 48
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom Edited - Prince of Tennis Customs - Ryomu_19
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 272
+        width: 34
+        height: 50
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: run1
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 224
+        width: 38
+        height: 45
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: run2
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 224
+        width: 42
+        height: 44
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: run3
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 222
+        width: 38
+        height: 45
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: run4
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 221
+        width: 38
+        height: 44
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: run5
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 215
+        width: 39
+        height: 49
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: run6
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 217
+        width: 38
+        height: 46
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom Edited - Prince of Tennis Customs - Ryomu_27
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 148
+        width: 34
+        height: 50
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom Edited - Prince of Tennis Customs - Ryomu_28
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 149
+        width: 33
+        height: 50
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom Edited - Prince of Tennis Customs - Ryomu_29
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 152
+        width: 33
+        height: 50
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom Edited - Prince of Tennis Customs - Ryomu_30
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 155
+        width: 33
+        height: 50
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom Edited - Prince of Tennis Customs - Ryomu_31
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 153
+        width: 45
+        height: 50
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom Edited - Prince of Tennis Customs - Ryomu_32
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 155
+        width: 44
+        height: 52
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom Edited - Prince of Tennis Customs - Ryomu_33
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 155
+        width: 44
+        height: 52
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom Edited - Prince of Tennis Customs - Ryomu_34
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 152
+        width: 23
+        height: 50
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: straight1
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 152
+        width: 37
+        height: 49
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: straight2
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 152
+        width: 47
+        height: 47
+      alignment: 9
+      pivot: {x: .699999988, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: straight3
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 153
+        width: 42
+        height: 47
+      alignment: 9
+      pivot: {x: .400000006, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: straight4
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 154
+        width: 56
+        height: 49
+      alignment: 9
+      pivot: {x: .349999994, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: straight5
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 153
+        width: 46
+        height: 49
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: straight6
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 157
+        width: 43
+        height: 50
+      alignment: 9
+      pivot: {x: .370000005, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom Edited - Prince of Tennis Customs - Ryomu_41
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 75
+        width: 9
+        height: 53
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom Edited - Prince of Tennis Customs - Ryomu_42
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 78
+        width: 38
+        height: 45
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom Edited - Prince of Tennis Customs - Ryomu_43
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 78
+        width: 42
+        height: 44
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom Edited - Prince of Tennis Customs - Ryomu_44
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 76
+        width: 38
+        height: 45
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom Edited - Prince of Tennis Customs - Ryomu_45
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 75
+        width: 38
+        height: 44
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom Edited - Prince of Tennis Customs - Ryomu_46
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 69
+        width: 39
+        height: 49
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom Edited - Prince of Tennis Customs - Ryomu_47
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 71
+        width: 36
+        height: 46
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom Edited - Prince of Tennis Customs - Ryomu_48
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 66
+        width: 9
+        height: 53
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: under1
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 68
+        width: 42
+        height: 47
+      alignment: 9
+      pivot: {x: .479999989, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: under3
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 69
+        width: 46
+        height: 49
+      alignment: 9
+      pivot: {x: .25, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom Edited - Prince of Tennis Customs - Ryomu_51
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 68
+        width: 24
+        height: 53
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom Edited - Prince of Tennis Customs - Ryomu_52
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 70
+        width: 46
+        height: 49
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom Edited - Prince of Tennis Customs - Ryomu_53
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 68
+        width: 29
+        height: 50
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom Edited - Prince of Tennis Customs - Ryomu_54
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 11
+        width: 33
+        height: 50
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom Edited - Prince of Tennis Customs - Ryomu_55
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 10
+        width: 44
+        height: 50
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Custom Edited - Prince of Tennis Customs - Ryomu_56
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 12
+        width: 41
+        height: 50
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

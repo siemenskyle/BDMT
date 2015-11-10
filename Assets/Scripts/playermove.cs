@@ -28,11 +28,16 @@ public class playermove : MonoBehaviour {
 		// Move Left
 		if (Input.GetKey (left)) {
 			transform.Translate (Vector3.left * speed * Time.deltaTime);
+			ator.SetBool("running", true);
+
 		}
-		
 		// Move Right
-		if (Input.GetKey (right)) {
+		else if (Input.GetKey (right)) {
 			transform.Translate (Vector3.right * speed * Time.deltaTime);
+			ator.SetBool("running", true);
+		}
+		else {
+			ator.SetBool("running", false);
 		}
 
 		// Swings
