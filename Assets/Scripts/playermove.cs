@@ -4,8 +4,9 @@ using System.Collections;
 public class playermove : MonoBehaviour {
 
 	public float speed;
-    public float speedSprint;
+    public float sprintSpeed;
 	public float jumpforce;
+    public float sprintCost;
 	public KeyCode left;
 	public KeyCode right;
 	public KeyCode up;
@@ -16,6 +17,7 @@ public class playermove : MonoBehaviour {
 	Rigidbody2D rbody;
 	BoxCollider2D coll;
 	Animator ator;
+    public float specialPower;
 
 
 	// Use this for initialization
@@ -23,25 +25,32 @@ public class playermove : MonoBehaviour {
 		rbody = GetComponent<Rigidbody2D> ();
 		coll = GetComponent<BoxCollider2D> ();
 		ator = GetComponentInChildren<Animator> ();
+        specialPower = 10;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		// Move Left
 		if (Input.GetKey (left)) {
-            if(Input.GetKey (sprint))
-                transform.Translate(Vector3.left * speedSprint * Time.deltaTime);
+            if (Input.GetKey(sprint) && specialPower > sprintCost)
+            {
+                transform.Translate(Vector3.left * sprintSpeed * Time.deltaTime);
+                specialPower -= sprintCost;
+            }
             else
-                transform.Translate (Vector3.left * speed * Time.deltaTime);
+                transform.Translate(Vector3.left * speed * Time.deltaTime);
 			ator.SetBool("running", true);
 
 		}
 		// Move Right
 		else if (Input.GetKey (right)) {
-            if (Input.GetKey(sprint))
-                transform.Translate(Vector3.right * speedSprint * Time.deltaTime);
+            if (Input.GetKey(sprint) && specialPower > sprintCost)
+            {
+                transform.Translate(Vector3.right * sprintSpeed * Time.deltaTime);
+                specialPower -= sprintCost;
+            }
             else
-                transform.Translate (Vector3.right * speed * Time.deltaTime);
+                transform.Translate(Vector3.right * speed * Time.deltaTime);
 			ator.SetBool("running", true);
 		}
 		else {
