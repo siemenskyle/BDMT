@@ -22,7 +22,6 @@ public class ScoreCounter : MonoBehaviour {
 			    || transform.position.x < -18) 
 					leftScore++;
           }
-        print("TRIGGER");
 
     }
     // Use this for initialization
