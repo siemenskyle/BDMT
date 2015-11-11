@@ -17,7 +17,7 @@ public class playermove : MonoBehaviour {
 	Rigidbody2D rbody;
 	BoxCollider2D coll;
 	Animator ator;
-    public float specialPower;
+    public double specialPower;
 
 
 	// Use this for initialization
