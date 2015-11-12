@@ -20,9 +20,12 @@ public class birdhit : MonoBehaviour {
 		//print (x + ", " + y);
 		// Add the force
 		bird.AddForce (new Vector2 (x, y));
-		this.enabled = false;
-        this.GetComponentInParent<playermove>().specialPower += 1;
-        if (this.GetComponentInParent<playermove>().specialPower > 10)
-            this.GetComponentInParent<playermove>().specialPower = 10;
+        if (coll.name == "birdie")
+        {
+            this.enabled = false;
+            this.GetComponentInParent<playermove>().specialPower += 1;
+            if (this.GetComponentInParent<playermove>().specialPower > 10)
+                this.GetComponentInParent<playermove>().specialPower = 10;
+        }
     }
 }
