@@ -3,12 +3,13 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class TimeUpdate : MonoBehaviour {
-    public GameObject timer;
+    GameObject timer;
+    public float deltaTime;
 
 	// Use this for initialization
 	void Start () {
         //print(Time.realtimeSinceStartup);
-         timer = GameObject.FindGameObjectWithTag("ScoreTimer");
+        timer = GameObject.FindGameObjectWithTag("ScoreTimer");
     }
 	
 	// Update is called once per frame
@@ -18,6 +19,6 @@ public class TimeUpdate : MonoBehaviour {
 
     void FixedUpdate()
     {
-        timer.GetComponent<Text>().text = Time.realtimeSinceStartup.ToString("F1");
+        timer.GetComponent<Text>().text = (Time.realtimeSinceStartup - deltaTime).ToString("F1");
     }
 }

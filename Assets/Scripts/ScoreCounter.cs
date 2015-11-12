@@ -30,15 +30,16 @@ public class ScoreCounter : MonoBehaviour {
         rightScore = 0;
         leftTimer = GameObject.FindGameObjectWithTag("LeftScore");
         rightTimer = GameObject.FindGameObjectWithTag("RightScore");
-	}
+        GameObject.FindGameObjectWithTag("ScoreBelt").GetComponent<TimeUpdate>().deltaTime = Time.realtimeSinceStartup;
+    }
 	
 	// Update is called once per frame
 	void Update () {
 
 		//checks the current score of each player
 		if (leftScore == 11 || rightScore == 11) {
-			//game ends when score of either player is 11
-			Application.LoadLevel (3);
+            //game ends when score of either player is 11
+            Application.LoadLevel (3);
 		}
 	}
 
