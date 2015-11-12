@@ -3,14 +3,16 @@ using System.Collections;
 
 public class BirdieSpawn : MonoBehaviour {
 	
-	public bool isPlaying;
-	public bool firstPlayerServe;
-	public bool secondPlayerServe;
+	bool isPlaying;
+	bool firstPlayerServe;
+	bool secondPlayerServe;
 	public KeyCode start;
 	Transform birdTransform;
 	GameObject playerOneSpawn;
 	GameObject playerTwoSpawn;
 	Rigidbody2D r_body;
+	CircleCollider2D cil_col;
+	BoxCollider2D box_col;
 	public int serveForce;
 
 	// Use this for initialization
@@ -22,6 +24,18 @@ public class BirdieSpawn : MonoBehaviour {
 		playerOneSpawn = GameObject.Find ("BirdSpawnOne");
 		playerTwoSpawn = GameObject.Find ("BirdSpawnTwo");
 		r_body = GetComponent<Rigidbody2D> ();
+		cil_col = GetComponent<CircleCollider2D> ();
+		box_col = GetComponent<BoxCollider2D> ();
+
+		//Disable two colliders
+		cil_col.enabled = false;
+		box_col.enabled = false;
+
+
+
+
+
+		//k_looks_good
 		serveForce = 1000;
 	}
 
@@ -35,12 +49,14 @@ public class BirdieSpawn : MonoBehaviour {
 			birdTransform.position = playerTwoSpawn.transform.position;
 		}
 
-		if (Input.GetKey (start)) {
+		if (Input.GetKey (start) && !isPlaying) {
 			isPlaying = true;
 			r_body.velocity = Vector2.zero;
 			r_body.AddForce(new Vector2(0, serveForce));
 			firstPlayerServe = false;
 			secondPlayerServe = false;
+			cil_col.enabled = true;
+			box_col.enabled = true;
 		}
 
 	}
@@ -50,7 +66,8 @@ public class BirdieSpawn : MonoBehaviour {
 		if (other.name.Contains("grass"))
 		{
 			isPlaying = false;
-
+			cil_col.enabled = false;
+			box_col.enabled = false;
 			//player two scored, their serve
 			if ((transform.position.x < 0 && transform.position.x >= -18) 
 			       ||  transform.position.x > 18) {
@@ -62,15 +79,4 @@ public class BirdieSpawn : MonoBehaviour {
 			}
 		}
 	}
-
-
-
-
-
-
-
-
-
-
-
 }
