@@ -39,7 +39,7 @@ public class ScoreCounter : MonoBehaviour {
 		//checks the current score of each player
 		if (leftScore == 11 || rightScore == 11) {
             //game ends when score of either player is 11
-            Application.LoadLevel (3);
+            Application.LoadLevel (4);
 		}
 	}
 
