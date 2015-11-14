@@ -32,10 +32,10 @@ public class playermove : MonoBehaviour {
 	void Update () {
 		// Move Left
 		if (Input.GetKey (left)) {
-            if (Input.GetKey(sprint) && specialPower > sprintCost)
+            if (Input.GetKey(sprint) && specialPower > sprintCost * Time.deltaTime)
             {
                 transform.Translate(Vector3.left * sprintSpeed * Time.deltaTime);
-                specialPower -= sprintCost;
+                specialPower -= sprintCost * Time.deltaTime;
             }
             else
                 transform.Translate(Vector3.left * speed * Time.deltaTime);
@@ -44,10 +44,10 @@ public class playermove : MonoBehaviour {
 		}
 		// Move Right
 		else if (Input.GetKey (right)) {
-            if (Input.GetKey(sprint) && specialPower > sprintCost)
+            if (Input.GetKey(sprint) && specialPower > sprintCost * Time.deltaTime)
             {
                 transform.Translate(Vector3.right * sprintSpeed * Time.deltaTime);
-                specialPower -= sprintCost;
+                specialPower -= sprintCost * Time.deltaTime;
             }
             else
                 transform.Translate(Vector3.right * speed * Time.deltaTime);
