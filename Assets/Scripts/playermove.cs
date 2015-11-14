@@ -7,6 +7,7 @@ public class playermove : MonoBehaviour {
     public float sprintSpeed;
 	public float jumpforce;
     public float sprintCost;
+    public float highGravity;
     public KeyCode left;
 	public KeyCode right;
 	public KeyCode up;
@@ -83,9 +84,9 @@ public class playermove : MonoBehaviour {
                 ator.SetBool("straight", true);
         }
 
-        if (Input.GetKeyDown(specialGravity) && specialPower >= 5 && GameObject.FindGameObjectWithTag("Bird").GetComponent<Rigidbody2D>().gravityScale != 1.5F)
+        if (Input.GetKeyDown(specialGravity) && specialPower >= 5 && GameObject.FindGameObjectWithTag("Bird").GetComponent<Rigidbody2D>().gravityScale != highGravity)
         {
-            GameObject.FindGameObjectWithTag("Bird").GetComponent<Rigidbody2D>().gravityScale = 1.5F;
+            GameObject.FindGameObjectWithTag("Bird").GetComponent<Rigidbody2D>().gravityScale = highGravity;
             specialPower -= 5;
         }
 
