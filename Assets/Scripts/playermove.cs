@@ -31,52 +31,57 @@ public class playermove : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		// Move Left
-		if (Input.GetKey (left)) {
-            if (Input.GetKey(sprint) && specialPower > sprintCost * Time.deltaTime)
-            {
-                transform.Translate(Vector3.left * sprintSpeed * Time.deltaTime);
-                specialPower -= sprintCost * Time.deltaTime;
-            }
-            else
-                transform.Translate(Vector3.left * speed * Time.deltaTime);
-			ator.SetBool("running", true);
 
-		}
-		// Move Right
-		else if (Input.GetKey (right)) {
-            if (Input.GetKey(sprint) && specialPower > sprintCost * Time.deltaTime)
-            {
-                transform.Translate(Vector3.right * sprintSpeed * Time.deltaTime);
-                specialPower -= sprintCost * Time.deltaTime;
-            }
-            else
-                transform.Translate(Vector3.right * speed * Time.deltaTime);
-			ator.SetBool("running", true);
-		}
-		else {
-			ator.SetBool("running", false);
-		}
-
-		// Swings
-		if (Input.GetKeyDown (hit)) {
-			// over hit if up held
-			if (Input.GetKey(up))
-				ator.SetBool("over", true);
-			// under hit if down held
-			else if (Input.GetKey(down))
-				ator.SetBool("under", true);
-			// no direction held means normal hit
-			else
-				ator.SetBool("straight", true);
-		}
 	}
 
 	void FixedUpdate () {
 		ator.SetBool("over", false);
 		ator.SetBool("straight", false);
 		ator.SetBool("under", false);
+        if (Input.GetKey(left))
+        {
+            if (Input.GetKey(sprint) && specialPower > sprintCost * Time.fixedDeltaTime)
+            {
+                transform.Translate(Vector3.left * sprintSpeed * Time.fixedDeltaTime);
+                specialPower -= sprintCost * Time.fixedDeltaTime;
+            }
+            else
+                transform.Translate(Vector3.left * speed * Time.fixedDeltaTime);
+            ator.SetBool("running", true);
 
-		if (Input.GetKeyDown (jump) && transform.position.y < -2.3) {
+        }
+        // Move Right
+        else if (Input.GetKey(right))
+        {
+            if (Input.GetKey(sprint) && specialPower > sprintCost * Time.fixedDeltaTime)
+            {
+                transform.Translate(Vector3.right * sprintSpeed * Time.fixedDeltaTime);
+                specialPower -= sprintCost * Time.fixedDeltaTime;
+            }
+            else
+                transform.Translate(Vector3.right * speed * Time.fixedDeltaTime);
+            ator.SetBool("running", true);
+        }
+        else
+        {
+            ator.SetBool("running", false);
+        }
+
+        // Swings
+        if (Input.GetKeyDown(hit))
+        {
+            // over hit if up held
+            if (Input.GetKey(up))
+                ator.SetBool("over", true);
+            // under hit if down held
+            else if (Input.GetKey(down))
+                ator.SetBool("under", true);
+            // no direction held means normal hit
+            else
+                ator.SetBool("straight", true);
+        }
+
+        if (Input.GetKeyDown (jump) && transform.position.y < -2.3) {
 			rbody.AddForce (new Vector2 (0, jumpforce));
 		}
 
