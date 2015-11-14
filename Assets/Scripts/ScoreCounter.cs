@@ -14,7 +14,7 @@ public class ScoreCounter : MonoBehaviour {
     {
         if (other.name.Contains("grass"))
         {
-			print(transform.position.x);
+            GameObject.FindGameObjectWithTag("Bird").GetComponent<Rigidbody2D>().gravityScale = 0.7F;
             if ((transform.position.x < 0 && transform.position.x >= -18) 
 			    ||  transform.position.x > 18) 
 					rightScore++;

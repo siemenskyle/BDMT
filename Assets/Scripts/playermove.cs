@@ -7,13 +7,14 @@ public class playermove : MonoBehaviour {
     public float sprintSpeed;
 	public float jumpforce;
     public float sprintCost;
-	public KeyCode left;
+    public KeyCode left;
 	public KeyCode right;
 	public KeyCode up;
 	public KeyCode down;
 	public KeyCode jump;
 	public KeyCode hit;
     public KeyCode sprint;
+    public KeyCode specialGravity;
 	Rigidbody2D rbody;
 	BoxCollider2D coll;
 	Animator ator;
@@ -30,7 +31,6 @@ public class playermove : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		// Move Left
 
 	}
 
@@ -38,6 +38,8 @@ public class playermove : MonoBehaviour {
 		ator.SetBool("over", false);
 		ator.SetBool("straight", false);
 		ator.SetBool("under", false);
+        // Move Left
+
         if (Input.GetKey(left))
         {
             if (Input.GetKey(sprint) && specialPower > sprintCost * Time.fixedDeltaTime)
@@ -79,6 +81,12 @@ public class playermove : MonoBehaviour {
             // no direction held means normal hit
             else
                 ator.SetBool("straight", true);
+        }
+
+        if (Input.GetKeyDown(specialGravity) && specialPower >= 5 && GameObject.FindGameObjectWithTag("Bird").GetComponent<Rigidbody2D>().gravityScale != 1.5F)
+        {
+            GameObject.FindGameObjectWithTag("Bird").GetComponent<Rigidbody2D>().gravityScale = 1.5F;
+            specialPower -= 5;
         }
 
         if (Input.GetKeyDown (jump) && transform.position.y < -2.3) {
