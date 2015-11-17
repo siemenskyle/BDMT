@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using XInputDotNetPure;
 
 public class playermove : MonoBehaviour {
 
@@ -14,13 +15,15 @@ public class playermove : MonoBehaviour {
 	public KeyCode down;
 	public KeyCode jump;
 	public KeyCode hit;
-    public KeyCode sprint;
+	public KeyCode sprint;
     public KeyCode specialGravity;
 	Rigidbody2D rbody;
 	BoxCollider2D coll;
 	Animator ator;
     public double specialPower;
-
+	GamePadState prevState;
+	GamePadState padState;
+	public PlayerIndex player;
 
 	// Use this for initialization
 	void Start () {
@@ -32,16 +35,14 @@ public class playermove : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		prevState = padState;
+		padState = GamePad.GetState (player);
 
-	}
-
-	void FixedUpdate () {
 		ator.SetBool("over", false);
 		ator.SetBool("straight", false);
 		ator.SetBool("under", false);
-        // Move Left
-
-        if (Input.GetKey(left))
+        // Move Lefts
+        if (padState.DPad.Left == ButtonState.Pressed)
         {
             if (Input.GetKey(sprint) && specialPower > sprintCost * Time.fixedDeltaTime)
             {
@@ -54,7 +55,7 @@ public class playermove : MonoBehaviour {
 
         }
         // Move Right
-        else if (Input.GetKey(right))
+        else if (padState.DPad.Right == ButtonState.Pressed)
         {
             if (Input.GetKey(sprint) && specialPower > sprintCost * Time.fixedDeltaTime)
             {
