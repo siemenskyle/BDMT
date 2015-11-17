@@ -8,7 +8,7 @@ public class TimeUpdate : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        //print(Time.realtimeSinceStartup);
+        // Get the location of the timer UI element, where time is kept on screen
         timer = GameObject.FindGameObjectWithTag("ScoreTimer");
     }
 	
@@ -19,6 +19,8 @@ public class TimeUpdate : MonoBehaviour {
 
     void FixedUpdate()
     {
+        // Put the difference of time between current game time and the time the last round started on screen
+        // with 1 decimal place
         timer.GetComponent<Text>().text = (Time.realtimeSinceStartup - deltaTime).ToString("F1");
     }
 }
