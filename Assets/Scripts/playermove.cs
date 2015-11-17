@@ -4,19 +4,12 @@ using XInputDotNetPure;
 
 public class playermove : MonoBehaviour {
 
-	public float speed;
-    public float sprintSpeed;
+	public float foreward;
+	public float backpedal;
+    public float sprintMult;
 	public float jumpforce;
     public float sprintCost;
     public float highGravity;
-    public KeyCode left;
-	public KeyCode right;
-	public KeyCode up;
-	public KeyCode down;
-	public KeyCode jump;
-	public KeyCode hit;
-	public KeyCode sprint;
-    public KeyCode specialGravity;
 	Rigidbody2D rbody;
 	BoxCollider2D coll;
 	Animator ator;
@@ -24,6 +17,7 @@ public class playermove : MonoBehaviour {
 	GamePadState prevState;
 	GamePadState padState;
 	public PlayerIndex player;
+	bool grounded;
 
 	// Use this for initialization
 	void Start () {
@@ -31,6 +25,7 @@ public class playermove : MonoBehaviour {
 		coll = GetComponent<BoxCollider2D> ();
 		ator = GetComponentInChildren<Animator> ();
         specialPower = 10;
+		grounded = false;
 	}
 	
 	// Update is called once per frame
@@ -41,29 +36,53 @@ public class playermove : MonoBehaviour {
 		ator.SetBool("over", false);
 		ator.SetBool("straight", false);
 		ator.SetBool("under", false);
+
         // Move Lefts
         if (padState.DPad.Left == ButtonState.Pressed)
         {
-            if (Input.GetKey(sprint) && specialPower > sprintCost * Time.fixedDeltaTime)
+			float movespeed;
+
+			// Check if backpedaling
+			if(player == PlayerIndex.One)
+				movespeed = backpedal;
+			else
+				movespeed = foreward;
+
+			// Check for sprint
+			if (padState.Buttons.RightShoulder == ButtonState.Pressed 
+			    && specialPower > sprintCost * Time.fixedDeltaTime)
             {
-                transform.Translate(Vector3.left * sprintSpeed * Time.fixedDeltaTime);
+                //transform.Translate(Vector3.left * sprintSpeed * Time.fixedDeltaTime);
+				movespeed = movespeed * sprintMult;
                 specialPower -= sprintCost * Time.fixedDeltaTime;
             }
-            else
-                transform.Translate(Vector3.left * speed * Time.fixedDeltaTime);
-            ator.SetBool("running", true);
 
+            // Apply Move
+            transform.Translate(Vector3.left * movespeed * Time.fixedDeltaTime);
+            ator.SetBool("running", true);
         }
         // Move Right
         else if (padState.DPad.Right == ButtonState.Pressed)
         {
-            if (Input.GetKey(sprint) && specialPower > sprintCost * Time.fixedDeltaTime)
+			float movespeed;
+			
+			// Check if backpedaling
+			if(player == PlayerIndex.One)
+				movespeed = foreward;
+			else
+				movespeed = backpedal;
+
+			// Check for Sprint
+			if (padState.Buttons.RightShoulder == ButtonState.Pressed 
+			    && specialPower > sprintCost * Time.fixedDeltaTime)
             {
-                transform.Translate(Vector3.right * sprintSpeed * Time.fixedDeltaTime);
+                //transform.Translate(Vector3.right * sprintSpeed * Time.fixedDeltaTime);
+				movespeed = movespeed * sprintMult;
                 specialPower -= sprintCost * Time.fixedDeltaTime;
             }
-            else
-                transform.Translate(Vector3.right * speed * Time.fixedDeltaTime);
+
+            // Apply Move
+			transform.Translate(Vector3.right * movespeed * Time.fixedDeltaTime); 
             ator.SetBool("running", true);
         }
         else
@@ -72,29 +91,59 @@ public class playermove : MonoBehaviour {
         }
 
         // Swings
-        if (Input.GetKeyDown(hit))
+		if (prevState.Buttons.X == ButtonState.Released && padState.Buttons.X == ButtonState.Pressed)
         {
             // over hit if up held
-            if (Input.GetKey(up))
+            if (padState.DPad.Up == ButtonState.Pressed)
                 ator.SetBool("over", true);
             // under hit if down held
-            else if (Input.GetKey(down))
+            else if (padState.DPad.Down == ButtonState.Pressed)
                 ator.SetBool("under", true);
             // no direction held means normal hit
             else
                 ator.SetBool("straight", true);
         }
 
-        if (Input.GetKeyDown(specialGravity) && specialPower >= 5 && GameObject.FindGameObjectWithTag("Bird").GetComponent<Rigidbody2D>().gravityScale != highGravity)
+		// Special
+		if (prevState.Buttons.LeftShoulder == ButtonState.Released && padState.Buttons.LeftShoulder == ButtonState.Pressed)
         {
-            GameObject.FindGameObjectWithTag("Bird").GetComponent<Rigidbody2D>().gravityScale = highGravity;
-            specialPower -= 5;
+			specialmove();
         }
 
-        if (Input.GetKeyDown (jump) && transform.position.y < -2.3) {
+		// Jump
+		if (prevState.Buttons.A == ButtonState.Released && padState.Buttons.A == ButtonState.Pressed
+		    && grounded) 
+		{
 			rbody.AddForce (new Vector2 (0, jumpforce));
+		}		
+	}
+
+	// High Gravity Special
+	private void specialmove()
+	{
+		if(specialPower >= 5 && GameObject.FindGameObjectWithTag("Bird").GetComponent<Rigidbody2D>().gravityScale != highGravity)
+		{
+			GameObject.FindGameObjectWithTag("Bird").GetComponent<Rigidbody2D>().gravityScale = highGravity;
+			specialPower -= 5;
 		}
+	}
 
+	void OnCollisionEnter2D(Collision2D coll)
+	{
+		if(coll.gameObject.tag == "ground"){
+			grounded = true;
+		}
+	}
 
+	void OnCollisionStay2D(Collision2D coll)
+	{
+		if(coll.gameObject.tag == "ground"){
+			grounded = true;
+		}
+	}
+
+	void OnCollisionExit2D()
+	{
+		grounded = false;
 	}
 }

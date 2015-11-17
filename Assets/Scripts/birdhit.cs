@@ -26,6 +26,8 @@ public class birdhit : MonoBehaviour {
             this.GetComponentInParent<playermove>().specialPower += 1;
             if (this.GetComponentInParent<playermove>().specialPower > 10)
                 this.GetComponentInParent<playermove>().specialPower = 10;
+			AudioSource a = coll.attachedRigidbody.gameObject.GetComponent<AudioSource> ();
+			a.Play();
         }
     }
 }
