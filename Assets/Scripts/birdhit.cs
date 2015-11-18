@@ -6,6 +6,7 @@ public class birdhit : MonoBehaviour {
     CircleCollider2D coll;
 	public float x;
 	public float y;
+    public float hitMul;
     // Use this for initialization
 
     void OnTriggerEnter2D(Collider2D coll)
@@ -13,22 +14,38 @@ public class birdhit : MonoBehaviour {
 		// Bird is only thing this can collide with now that we fixed it
 		Rigidbody2D bird = coll.attachedRigidbody;
 
+
 		bird.velocity = Vector2.zero;
 
 		// Flip x force if on other side
 		//x = -x * Mathf.Sign (transform.position.x);
 		//print (x + ", " + y);
 		// Add the force
-		bird.AddForce (new Vector2 (x, y));
-        if (coll.name == "birdie")
+        if (GetComponentInParent<playermove>().hitMultiplier == true && GetComponentInParent<playermove>().specialPower >= 5)
         {
-            this.enabled = false;
-            this.GetComponentInParent<playermove>().specialPower += 1;
-            if (this.GetComponentInParent<playermove>().specialPower > 10)
-                this.GetComponentInParent<playermove>().specialPower = 10;
-			AudioSource a = coll.attachedRigidbody.gameObject.GetComponent<AudioSource> ();
-			a.Play();
-        }
+            bird.AddForce(new Vector2(hitMul * x, hitMul * y));
+
+            if (coll.name == "birdie")
+            {
+                this.enabled = false;
+                this.GetComponentInParent<playermove>().specialPower -= 5;
+                AudioSource a = coll.attachedRigidbody.gameObject.GetComponent<AudioSource>();
+                a.Play();
+            }
+
+            GetComponentInParent<playermove>().hitMultiplier = false;
+        } else {
+            bird.AddForce(new Vector2(x, y));
+
+            if (coll.name == "birdie")
+            {
+                this.enabled = false;
+                this.GetComponentInParent<playermove>().specialPower += 1;
+                if (this.GetComponentInParent<playermove>().specialPower > 10)
+                    this.GetComponentInParent<playermove>().specialPower = 10;
+                AudioSource a = coll.attachedRigidbody.gameObject.GetComponent<AudioSource>();
+                a.Play();
+            } }
 
 		GameObject.FindGameObjectWithTag("PlayerLeft").GetComponent< playermove >().setserve(false);
 		GameObject.FindGameObjectWithTag("PlayerRight").GetComponent< playermove >().setserve(false);

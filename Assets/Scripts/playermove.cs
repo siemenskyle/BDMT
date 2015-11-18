@@ -4,6 +4,8 @@ using XInputDotNetPure;
 
 public class playermove : MonoBehaviour {
 
+    public bool hitMultiplier;
+
 	public float foreward;
 	public float backpedal;
     public float sprintMult;
@@ -29,6 +31,7 @@ public class playermove : MonoBehaviour {
         specialPower = 10;
 		grounded = false;
 		serve = true;
+        hitMultiplier = false;
 	}
 	
 	// Update is called once per frame
@@ -39,6 +42,7 @@ public class playermove : MonoBehaviour {
 		ator.SetBool("over", false);
 		ator.SetBool("straight", false);
 		ator.SetBool("under", false);
+
 
         // Move Lefts
         if (padState.DPad.Left == ButtonState.Pressed)
@@ -94,6 +98,8 @@ public class playermove : MonoBehaviour {
         // Swings
 		if (prevState.Buttons.X == ButtonState.Released && padState.Buttons.X == ButtonState.Pressed)
         {
+            if (padState.Buttons.RightShoulder == ButtonState.Pressed)
+                hitMultiplier = true;
             // over hit if up held
             if (padState.DPad.Up == ButtonState.Pressed)
                 ator.SetBool("over", true);
