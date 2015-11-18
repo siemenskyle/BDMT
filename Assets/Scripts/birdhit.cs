@@ -36,8 +36,6 @@ public class birdhit : MonoBehaviour {
                 AudioSource a = coll.attachedRigidbody.gameObject.GetComponent<AudioSource>();
                 a.Play();
             }
-
-            GetComponentInParent<playermove>().hitMultiplier = false;
         } else {
             // if no multiplier, then just use regular hit force
             bird.AddForce(new Vector2(x, y));
@@ -51,8 +49,10 @@ public class birdhit : MonoBehaviour {
                 AudioSource a = coll.attachedRigidbody.gameObject.GetComponent<AudioSource>();
                 a.Play();
             } }
+        // make sure hit multiplier is off
+        GetComponentInParent<playermove>().hitMultiplier = false;
 
-		GameObject.FindGameObjectWithTag("PlayerLeft").GetComponent< playermove >().setserve(false);
+        GameObject.FindGameObjectWithTag("PlayerLeft").GetComponent< playermove >().setserve(false);
 		GameObject.FindGameObjectWithTag("PlayerRight").GetComponent< playermove >().setserve(false);
     }
 }
