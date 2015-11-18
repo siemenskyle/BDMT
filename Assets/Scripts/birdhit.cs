@@ -21,12 +21,16 @@ public class birdhit : MonoBehaviour {
 		//x = -x * Mathf.Sign (transform.position.x);
 		//print (x + ", " + y);
 		// Add the force
+
+        // check if the multiplier is been activated by the player, if so and it can be done then activate special move
         if (GetComponentInParent<playermove>().hitMultiplier == true && GetComponentInParent<playermove>().specialPower >= 5)
         {
+            // if can multiply the hit force
             bird.AddForce(new Vector2(hitMul * x, hitMul * y));
 
             if (coll.name == "birdie")
             {
+                // if hits the bird, take the power away from the hit and play sound
                 this.enabled = false;
                 this.GetComponentInParent<playermove>().specialPower -= 5;
                 AudioSource a = coll.attachedRigidbody.gameObject.GetComponent<AudioSource>();
@@ -35,6 +39,7 @@ public class birdhit : MonoBehaviour {
 
             GetComponentInParent<playermove>().hitMultiplier = false;
         } else {
+            // if no multiplier, then just use regular hit force
             bird.AddForce(new Vector2(x, y));
 
             if (coll.name == "birdie")

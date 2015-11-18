@@ -98,6 +98,7 @@ public class playermove : MonoBehaviour {
         // Swings
 		if (prevState.Buttons.X == ButtonState.Released && padState.Buttons.X == ButtonState.Pressed)
         {
+            // if button pressed, then multiplier is added to hit force.
             if (padState.Buttons.RightShoulder == ButtonState.Pressed)
                 hitMultiplier = true;
             // over hit if up held
