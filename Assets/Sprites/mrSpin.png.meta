@@ -1,0 +1,232 @@
+fileFormatVersion: 2
+guid: ebce9be1f11835d47ac0d0bc9bd05e54
+timeCreated: 1447806740
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: over1
+    21300002: over2
+    21300004: over3
+    21300006: straight1
+    21300008: straight2
+    21300010: straight3
+    21300012: mrSpin_6
+    21300014: mrSpin_7
+    21300016: mrSpin_8
+    21300018: idle
+    21300020: under1
+    21300022: under2
+    21300024: mrSpin_12
+    21300026: walk3
+    21300028: walk2
+    21300030: walk1
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 28
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: over1
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 696
+        width: 149
+        height: 145
+      alignment: 9
+      pivot: {x: .349999994, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: over2
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 699
+        width: 142
+        height: 153
+      alignment: 9
+      pivot: {x: .629999995, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: over3
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 705
+        width: 112
+        height: 135
+      alignment: 9
+      pivot: {x: .800000012, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: straight1
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 526
+        width: 149
+        height: 145
+      alignment: 9
+      pivot: {x: .349999994, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: straight2
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 533
+        width: 142
+        height: 136
+      alignment: 9
+      pivot: {x: .639999986, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: straight3
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 534
+        width: 112
+        height: 136
+      alignment: 9
+      pivot: {x: .800000012, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: mrSpin_6
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 345
+        width: 95
+        height: 145
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: mrSpin_7
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 356
+        width: 95
+        height: 146
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: mrSpin_8
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 356
+        width: 89
+        height: 145
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: idle
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 364
+        width: 95
+        height: 146
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: under1
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 173
+        width: 90
+        height: 144
+      alignment: 9
+      pivot: {x: .600000024, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: under2
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 175
+        width: 112
+        height: 143
+      alignment: 9
+      pivot: {x: .800000012, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: mrSpin_12
+      rect:
+        serializedVersion: 2
+        x: 604
+        y: 178
+        width: 110
+        height: 142
+      alignment: 9
+      pivot: {x: .800000012, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: walk3
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 7
+        width: 90
+        height: 148
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: walk2
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 0
+        width: 84
+        height: 153
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: walk1
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 4
+        width: 109
+        height: 146
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

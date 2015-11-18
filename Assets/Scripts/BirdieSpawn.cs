@@ -12,8 +12,9 @@ public class BirdieSpawn : MonoBehaviour {
 	//Keycode for serving
 	public KeyCode start;
 	Transform birdTransform;
-	GameObject playerOneSpawn;
-	GameObject playerTwoSpawn;
+
+	Transform playerOneSpawn;
+	Transform playerTwoSpawn;
 	Rigidbody2D r_body;
 	CircleCollider2D cil_col;
 	BoxCollider2D box_col;
@@ -27,8 +28,10 @@ public class BirdieSpawn : MonoBehaviour {
 		birdTransform = transform;
 		firstPlayerServe = true;
 		secondPlayerServe = false;
-		playerOneSpawn = GameObject.Find ("BirdSpawnOne");
-		playerTwoSpawn = GameObject.Find ("BirdSpawnTwo");
+
+		playerOneSpawn = GameObject.FindGameObjectsWithTag("PlayerLeft")[0].GetComponentsInChildren<Transform> ()[4];
+		playerTwoSpawn = GameObject.FindGameObjectsWithTag("PlayerRight")[0].GetComponentsInChildren<Transform> ()[4];
+
 		r_body = GetComponent<Rigidbody2D> ();
 		cil_col = GetComponent<CircleCollider2D> ();
 		box_col = GetComponent<BoxCollider2D> ();
@@ -38,19 +41,19 @@ public class BirdieSpawn : MonoBehaviour {
 		box_col.enabled = false;
 
 		//k_looks_good
-		serveForce = 1000;
+		//serveForce = 1000;
 	}
 
 	// Update is called once per frame
 	void Update () {
 		//If bird is in serve mode, keep moving it to the player one spawn position
 		if (!isPlaying && firstPlayerServe) {
-			birdTransform.position = playerOneSpawn.transform.position;
+			birdTransform.position = playerOneSpawn.position;
 		}
 
 		//If bird is in serve mode, keep moving it to the player two spawn position
 		if (!isPlaying && secondPlayerServe) {
-			birdTransform.position = playerTwoSpawn.transform.position;
+			birdTransform.position = playerTwoSpawn.position;
 		}
 
 		//if it is possible to serve the bird, and key is inputted, then serve
