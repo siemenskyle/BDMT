@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using XInputDotNetPure;
 
 public class BirdieSpawn : MonoBehaviour {
 
 	//Boolean used to flag if birdie is in play
-	bool isPlaying;
+	public bool isPlaying;
 	//Boolean used to flag if it is first player's serve
 	bool firstPlayerServe;
 	//Boolean used to flag if it is second player's serve
@@ -18,8 +19,12 @@ public class BirdieSpawn : MonoBehaviour {
 	Rigidbody2D r_body;
 	CircleCollider2D cil_col;
 	BoxCollider2D box_col;
+	GamePadState prevState;
+	GamePadState padState;
 	//k_looks_good on the force to apply to the serve
 	public int serveForce;
+	public bool serving;
+
 
 	// Use this for initialization
 	void Start () {
@@ -40,8 +45,7 @@ public class BirdieSpawn : MonoBehaviour {
 		cil_col.enabled = false;
 		box_col.enabled = false;
 
-		//k_looks_good
-		//serveForce = 1000;
+
 	}
 
 	// Update is called once per frame
@@ -56,21 +60,35 @@ public class BirdieSpawn : MonoBehaviour {
 			birdTransform.position = playerTwoSpawn.position;
 		}
 
-		//if it is possible to serve the bird, and key is inputted, then serve
-		// the bird, enable colliders, and set boolean flags.
-		if (Input.GetKey (start) && !isPlaying) {
-			isPlaying = true;
-			r_body.velocity = Vector2.zero;
-			r_body.AddForce(new Vector2(0, serveForce));
-			firstPlayerServe = false;
-			secondPlayerServe = false;
-			cil_col.enabled = true;
-			box_col.enabled = true;
+		//if it is possible to serve the bird, and key is inputted, serve
+		if(!isPlaying){
+			prevState = padState;
+
+			if(firstPlayerServe)
+				padState = GamePad.GetState(PlayerIndex.One);
+
+			if(secondPlayerServe)
+				padState = GamePad.GetState(PlayerIndex.Two);
+
+			if(prevState.Buttons.A == ButtonState.Released && padState.Buttons.A == ButtonState.Pressed)
+				serve();
 		}
 
 	}
 
-	//Function used when the birdie collides with something, in this case we only care about when it
+	// Serve the bird, enable colliders, and set boolean flags.
+	void serve()
+	{
+		isPlaying = true;
+		r_body.velocity = Vector2.zero;
+		r_body.AddForce(new Vector2(0, serveForce));
+		firstPlayerServe = false;
+		secondPlayerServe = false;
+		cil_col.enabled = true;
+		box_col.enabled = true;
+	}
+		
+		//Function used when the birdie collides with something, in this case we only care about when it
 	// collides with the ground.
 	void OnTriggerEnter2D(Collider2D other)
 	{

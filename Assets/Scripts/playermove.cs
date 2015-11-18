@@ -18,6 +18,7 @@ public class playermove : MonoBehaviour {
 	GamePadState padState;
 	public PlayerIndex player;
 	bool grounded;
+	bool serve;
 
 	// Use this for initialization
 	void Start () {
@@ -110,9 +111,12 @@ public class playermove : MonoBehaviour {
 			specialmove();
         }
 
-		// Jump
+		// Find out if you are serving right now
+		serve = ! GameObject.Find("birdie").GetComponent< BirdieSpawn >().isPlaying;
+
+		// Jump -- Cannot jump if serving
 		if (prevState.Buttons.A == ButtonState.Released && padState.Buttons.A == ButtonState.Pressed
-		    && grounded) 
+		    && grounded && ! serve) 
 		{
 			rbody.AddForce (new Vector2 (0, jumpforce));
 		}		
