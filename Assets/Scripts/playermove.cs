@@ -13,6 +13,7 @@ public class playermove : MonoBehaviour {
 	Rigidbody2D rbody;
 //	BoxCollider2D coll;
 	Animator ator;
+    public KeyCode smash;
     public double specialPower;
 	GamePadState prevState;
 	GamePadState padState;
