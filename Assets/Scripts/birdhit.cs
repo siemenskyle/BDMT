@@ -29,5 +29,8 @@ public class birdhit : MonoBehaviour {
 			AudioSource a = coll.attachedRigidbody.gameObject.GetComponent<AudioSource> ();
 			a.Play();
         }
+
+		GameObject.FindGameObjectWithTag("PlayerLeft").GetComponent< playermove >().setserve(false);
+		GameObject.FindGameObjectWithTag("PlayerRight").GetComponent< playermove >().setserve(false);
     }
 }

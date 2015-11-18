@@ -23,7 +23,6 @@ public class BirdieSpawn : MonoBehaviour {
 	GamePadState padState;
 	//k_looks_good on the force to apply to the serve
 	public int serveForce;
-	public bool serving;
 
 
 	// Use this for initialization
@@ -34,8 +33,8 @@ public class BirdieSpawn : MonoBehaviour {
 		firstPlayerServe = true;
 		secondPlayerServe = false;
 
-		playerOneSpawn = GameObject.FindGameObjectsWithTag("PlayerLeft")[0].GetComponentsInChildren<Transform> ()[4];
-		playerTwoSpawn = GameObject.FindGameObjectsWithTag("PlayerRight")[0].GetComponentsInChildren<Transform> ()[4];
+		playerOneSpawn = GameObject.FindGameObjectWithTag("PlayerLeft").GetComponentsInChildren<Transform> ()[4];
+		playerTwoSpawn = GameObject.FindGameObjectWithTag("PlayerRight").GetComponentsInChildren<Transform> ()[4];
 
 		r_body = GetComponent<Rigidbody2D> ();
 		cil_col = GetComponent<CircleCollider2D> ();
@@ -64,20 +63,21 @@ public class BirdieSpawn : MonoBehaviour {
 		if(!isPlaying){
 			prevState = padState;
 
-			if(firstPlayerServe)
+			if(firstPlayerServe){
 				padState = GamePad.GetState(PlayerIndex.One);
-
-			if(secondPlayerServe)
+			}
+			if(secondPlayerServe){
 				padState = GamePad.GetState(PlayerIndex.Two);
+			}
 
 			if(prevState.Buttons.A == ButtonState.Released && padState.Buttons.A == ButtonState.Pressed)
-				serve();
+				servebird();
 		}
 
 	}
 
 	// Serve the bird, enable colliders, and set boolean flags.
-	void serve()
+	void servebird()
 	{
 		isPlaying = true;
 		r_body.velocity = Vector2.zero;
@@ -86,6 +86,8 @@ public class BirdieSpawn : MonoBehaviour {
 		secondPlayerServe = false;
 		cil_col.enabled = true;
 		box_col.enabled = true;
+
+
 	}
 		
 		//Function used when the birdie collides with something, in this case we only care about when it
@@ -108,6 +110,8 @@ public class BirdieSpawn : MonoBehaviour {
 		           || transform.position.x < -18) {
 				firstPlayerServe = true;
 			}
+			GameObject.FindGameObjectWithTag("PlayerLeft").GetComponent< playermove >().setserve(true);
+			GameObject.FindGameObjectWithTag("PlayerRight").GetComponent< playermove >().setserve(true);
 		}
 	}
 }

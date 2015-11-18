@@ -11,7 +11,7 @@ public class playermove : MonoBehaviour {
     public float sprintCost;
     public float highGravity;
 	Rigidbody2D rbody;
-	BoxCollider2D coll;
+//	BoxCollider2D coll;
 	Animator ator;
     public double specialPower;
 	GamePadState prevState;
@@ -23,10 +23,11 @@ public class playermove : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		rbody = GetComponent<Rigidbody2D> ();
-		coll = GetComponent<BoxCollider2D> ();
+		//coll = GetComponent<BoxCollider2D> ();
 		ator = GetComponentInChildren<Animator> ();
         specialPower = 10;
 		grounded = false;
+		serve = true;
 	}
 	
 	// Update is called once per frame
@@ -51,9 +52,8 @@ public class playermove : MonoBehaviour {
 
 			// Check for sprint
 			if (padState.Buttons.RightShoulder == ButtonState.Pressed 
-			    && specialPower > sprintCost * Time.fixedDeltaTime)
+			    && specialPower > sprintCost * Time.fixedDeltaTime && !serve)
             {
-                //transform.Translate(Vector3.left * sprintSpeed * Time.fixedDeltaTime);
 				movespeed = movespeed * sprintMult;
                 specialPower -= sprintCost * Time.fixedDeltaTime;
             }
@@ -75,9 +75,8 @@ public class playermove : MonoBehaviour {
 
 			// Check for Sprint
 			if (padState.Buttons.RightShoulder == ButtonState.Pressed 
-			    && specialPower > sprintCost * Time.fixedDeltaTime)
+			    && specialPower > sprintCost * Time.fixedDeltaTime && !serve)
             {
-                //transform.Translate(Vector3.right * sprintSpeed * Time.fixedDeltaTime);
 				movespeed = movespeed * sprintMult;
                 specialPower -= sprintCost * Time.fixedDeltaTime;
             }
@@ -106,20 +105,24 @@ public class playermove : MonoBehaviour {
         }
 
 		// Special
-		if (prevState.Buttons.LeftShoulder == ButtonState.Released && padState.Buttons.LeftShoulder == ButtonState.Pressed)
+		if (prevState.Buttons.LeftShoulder == ButtonState.Released && padState.Buttons.LeftShoulder == ButtonState.Pressed && !serve)
         {
 			specialmove();
         }
 
-		// Find out if you are serving right now
-		serve = ! GameObject.Find("birdie").GetComponent< BirdieSpawn >().isPlaying;
 
 		// Jump -- Cannot jump if serving
 		if (prevState.Buttons.A == ButtonState.Released && padState.Buttons.A == ButtonState.Pressed
-		    && grounded && ! serve) 
+		    && grounded && !serve) 
 		{
 			rbody.AddForce (new Vector2 (0, jumpforce));
-		}		
+		}
+
+	}
+
+	public void setserve(bool set)
+	{
+		serve = set;
 	}
 
 	// High Gravity Special
