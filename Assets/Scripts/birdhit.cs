@@ -22,27 +22,23 @@ public class birdhit : MonoBehaviour {
             // if can multiply the hit force
             bird.AddForce(new Vector2(hitMul * x, hitMul * y));
 
-            if (coll.name == "birdie")
-            {
                 // if hits the bird, take the power away from the hit and play sound
                 this.enabled = false;
                 this.GetComponentInParent<playermove>().specialPower -= 5;
                 AudioSource a = coll.attachedRigidbody.gameObject.GetComponent<AudioSource>();
                 a.Play();
-            }
         } else {
             // if no multiplier, then just use regular hit force
             bird.AddForce(new Vector2(x, y));
 
-            if (coll.name == "birdie")
-            {
+				// if hits the bird, take the power away from the hit and play sound
                 this.enabled = false;
                 this.GetComponentInParent<playermove>().specialPower += 1;
                 if (this.GetComponentInParent<playermove>().specialPower > 10)
                     this.GetComponentInParent<playermove>().specialPower = 10;
                 AudioSource a = coll.attachedRigidbody.gameObject.GetComponent<AudioSource>();
                 a.Play();
-            } }
+		}
         // make sure hit multiplier is off
         GetComponentInParent<playermove>().hitMultiplier = false;
 

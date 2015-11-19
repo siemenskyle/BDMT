@@ -5,6 +5,7 @@ using XInputDotNetPure;
 public class OnLevelLoad : MonoBehaviour {
 	public GameObject player1prefab;
 	public GameObject player2prefab;
+	public GameObject bird;
 
 
 	// Use this for initialization
@@ -26,5 +27,7 @@ public class OnLevelLoad : MonoBehaviour {
 		GameObject.FindGameObjectWithTag("RightPower").GetComponent<ShowPower>().setplayer(p2);
 		foreach (birdhit h in p2.GetComponentsInChildren<birdhit>())
 			h.flipx();
+
+		Instantiate(bird);
 	}
 }
