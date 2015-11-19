@@ -139,6 +139,8 @@ public class playermove : MonoBehaviour {
 		if(specialPower >= 5 && GameObject.FindGameObjectWithTag("Bird").GetComponent<Rigidbody2D>().gravityScale != highGravity)
 		{
 			GameObject.FindGameObjectWithTag("Bird").GetComponent<Rigidbody2D>().gravityScale = highGravity;
+			GameObject.Find("circle").GetComponent<SpriteRenderer>().enabled = true;
+			GameObject.Find("circle").GetComponent<AudioSource>().enabled = true;
 			specialPower -= 5;
 		}
 	}

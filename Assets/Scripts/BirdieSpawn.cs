@@ -110,8 +110,12 @@ public class BirdieSpawn : MonoBehaviour {
 		           || transform.position.x < -18) {
 				firstPlayerServe = true;
 			}
+
 			GameObject.FindGameObjectWithTag("PlayerLeft").GetComponent< playermove >().setserve(true);
 			GameObject.FindGameObjectWithTag("PlayerRight").GetComponent< playermove >().setserve(true);
+
+			GameObject.Find("circle").GetComponent<SpriteRenderer>().enabled = false;
+			GameObject.Find("circle").GetComponent<AudioSource>().enabled = false;
 		}
 	}
 }
