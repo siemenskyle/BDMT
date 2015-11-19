@@ -3,30 +3,30 @@ using System.Collections;
 using XInputDotNetPure;
 
 public class playermove : MonoBehaviour {
-
+	// Public variables
     public bool hitMultiplier;
-
 	public float foreward;
 	public float backpedal;
     public float sprintMult;
 	public float jumpforce;
     public float sprintCost;
     public float highGravity;
+	public double specialPower;
+	public PlayerIndex player;
+	// Player Objects
 	Rigidbody2D rbody;
-//	BoxCollider2D coll;
 	Animator ator;
-    public KeyCode smash;
-    public double specialPower;
+	// Game Pad
 	GamePadState prevState;
 	GamePadState padState;
-	public PlayerIndex player;
+	// Flags
 	bool grounded;
 	bool serve;
+
 
 	// Use this for initialization
 	void Start () {
 		rbody = GetComponent<Rigidbody2D> ();
-		//coll = GetComponent<BoxCollider2D> ();
 		ator = GetComponentInChildren<Animator> ();
         specialPower = 10;
 		grounded = false;
@@ -55,7 +55,7 @@ public class playermove : MonoBehaviour {
 			else
 				movespeed = foreward;
 
-			// Check for sprint
+			// Check for sprint -- cannot sprint if serve
 			if (padState.Buttons.RightShoulder == ButtonState.Pressed 
 			    && specialPower > sprintCost * Time.fixedDeltaTime && !serve)
             {
@@ -78,7 +78,7 @@ public class playermove : MonoBehaviour {
 			else
 				movespeed = backpedal;
 
-			// Check for Sprint
+			// Check for Sprint -- cannot sprint if serve
 			if (padState.Buttons.RightShoulder == ButtonState.Pressed 
 			    && specialPower > sprintCost * Time.fixedDeltaTime && !serve)
             {
@@ -112,7 +112,8 @@ public class playermove : MonoBehaviour {
                 ator.SetBool("straight", true);
         }
 
-		// Special
+
+		// Special move -- cannot if serving
 		if (prevState.Buttons.LeftShoulder == ButtonState.Released && padState.Buttons.LeftShoulder == ButtonState.Pressed && !serve)
         {
 			specialmove();
@@ -127,13 +128,9 @@ public class playermove : MonoBehaviour {
 		}
 
 	}
-
-	public void setserve(bool set)
-	{
-		serve = set;
-	}
-
+	
 	// High Gravity Special
+	// Cannot use if already activated by self or other player
 	private void specialmove()
 	{
 		if(specialPower >= 5 && GameObject.FindGameObjectWithTag("Bird").GetComponent<Rigidbody2D>().gravityScale != highGravity)
@@ -145,22 +142,34 @@ public class playermove : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionEnter2D(Collision2D coll)
-	{
+	// Check if grounded
+	void OnCollisionEnter2D(Collision2D coll){
 		if(coll.gameObject.tag == "ground"){
 			grounded = true;
 		}
 	}
-
-	void OnCollisionStay2D(Collision2D coll)
-	{
+	void OnCollisionStay2D(Collision2D coll){
 		if(coll.gameObject.tag == "ground"){
 			grounded = true;
 		}
 	}
-
-	void OnCollisionExit2D()
-	{
+	void OnCollisionExit2D(){
 		grounded = false;
 	}
+
+
+	// PUBLIC FUNCTIONS USED OUTSIDE THIS
+	// Set serving flag
+	public void setserve(bool set)
+	{
+		serve = set;
+	}
+	public void setplayer(PlayerIndex p)
+	{
+		player = p;
+	}
+
+
+
+
 }

@@ -21,7 +21,9 @@ public class ShowPower : MonoBehaviour {
     public GameObject player;
 
 	// Use this for initialization
-	void Start () {
+	public void setplayer (GameObject p) {
+		player = p;
+
 	}
 	
 	// Update is called once per frame
@@ -63,7 +65,5 @@ public class ShowPower : MonoBehaviour {
                 this.GetComponent<SpriteRenderer>().sprite = powerTen;
                 break;
         }
-            
-
 	}
 }

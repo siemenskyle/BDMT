@@ -14,13 +14,7 @@ public class birdhit : MonoBehaviour {
 		// Bird is only thing this can collide with now that we fixed it
 		Rigidbody2D bird = coll.attachedRigidbody;
 
-
 		bird.velocity = Vector2.zero;
-
-		// Flip x force if on other side
-		//x = -x * Mathf.Sign (transform.position.x);
-		//print (x + ", " + y);
-		// Add the force
 
         // check if the multiplier is been activated by the player, if so and it can be done then activate special move
         if (GetComponentInParent<playermove>().hitMultiplier == true && GetComponentInParent<playermove>().specialPower >= 5)
@@ -55,4 +49,9 @@ public class birdhit : MonoBehaviour {
         GameObject.FindGameObjectWithTag("PlayerLeft").GetComponent< playermove >().setserve(false);
 		GameObject.FindGameObjectWithTag("PlayerRight").GetComponent< playermove >().setserve(false);
     }
+
+	// Flip X force, used if on P2 side
+	public void flipx(){
+		x *= -1;
+	}
 }
