@@ -22,6 +22,7 @@ public class playermove : MonoBehaviour {
 	// Flags
 	bool grounded;
 	bool serve;
+	bool wait;
 
 
 	// Use this for initialization
@@ -43,6 +44,8 @@ public class playermove : MonoBehaviour {
 		ator.SetBool("straight", false);
 		ator.SetBool("under", false);
 
+		if(wait)
+			return;
 
         // Move Lefts
         if (padState.DPad.Left == ButtonState.Pressed)
@@ -178,6 +181,10 @@ public class playermove : MonoBehaviour {
 	public void setserve(bool set)
 	{
 		serve = set;
+	}
+	public void setwait(bool set)
+	{
+		wait = set;
 	}
 	public void setplayer(PlayerIndex p)
 	{

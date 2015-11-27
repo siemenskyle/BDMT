@@ -25,6 +25,7 @@ public class BirdieSpawn : MonoBehaviour {
 	GamePadState padState;
 	//k_looks_good on the force to apply to the serve
 	public int serveForce;
+	bool wait;
 
 
 	// Use this for initialization
@@ -38,6 +39,7 @@ public class BirdieSpawn : MonoBehaviour {
 		pointAnim = GameObject.Find ("Indicators").GetComponent<Animator>();
 
 		//Set required variables
+		wait = true;
 		isPlaying = false;
 		birdTransform = transform;
 
@@ -71,7 +73,7 @@ public class BirdieSpawn : MonoBehaviour {
 		}
 
 		//if it is possible to serve the bird, and key is inputted, serve
-		if(!isPlaying){
+		if(!isPlaying && !wait){
 			prevState = padState;
 
 			if(firstPlayerServe){
@@ -97,8 +99,6 @@ public class BirdieSpawn : MonoBehaviour {
 		secondPlayerServe = false;
 		cil_col.enabled = true;
 		box_col.enabled = true;
-
-
 	}
 		
 		//Function used when the birdie collides with something, in this case we only care about when it
@@ -126,12 +126,18 @@ public class BirdieSpawn : MonoBehaviour {
 				firstPlayerServe = true;
 				pointAnim.SetBool("p1", true);
 			}
-
+			wait = true;
 			GameObject.FindGameObjectWithTag("PlayerLeft").GetComponent< playermove >().setserve(true);
 			GameObject.FindGameObjectWithTag("PlayerRight").GetComponent< playermove >().setserve(true);
+			GameObject.FindGameObjectWithTag("PlayerLeft").GetComponent< playermove >().setwait(true);
+			GameObject.FindGameObjectWithTag("PlayerRight").GetComponent< playermove >().setwait(true);
 
 			GameObject.Find("circle").GetComponent<SpriteRenderer>().enabled = false;
 			GameObject.Find("circle").GetComponent<AudioSource>().enabled = false;
 		}
+	}
+
+	public void setwait(bool set){
+		wait = set;
 	}
 }
