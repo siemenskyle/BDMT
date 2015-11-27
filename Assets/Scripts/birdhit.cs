@@ -31,11 +31,14 @@ public class birdhit : MonoBehaviour {
             // if no multiplier, then just use regular hit force
             bird.AddForce(new Vector2(x, y));
 
-				// if hits the bird, take the power away from the hit and play sound
+            // if hits the bird, take the power away from the hit and play sound
+            if (coll.tag == "Bird")
+            {
                 this.enabled = false;
                 this.GetComponentInParent<playermove>().specialPower += 1;
                 if (this.GetComponentInParent<playermove>().specialPower > 10)
                     this.GetComponentInParent<playermove>().specialPower = 10;
+            }
                 AudioSource a = coll.attachedRigidbody.gameObject.GetComponent<AudioSource>();
                 a.Play();
 		}
