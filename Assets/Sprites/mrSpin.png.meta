@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: ebce9be1f11835d47ac0d0bc9bd05e54
-timeCreated: 1447806740
+timeCreated: 1448594617
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -10,16 +10,30 @@ TextureImporter:
     21300006: straight1
     21300008: straight2
     21300010: straight3
-    21300012: mrSpin_6
-    21300014: mrSpin_7
-    21300016: mrSpin_8
+    21300012: straight3
+    21300014: straight2
+    21300016: straight2
     21300018: idle
     21300020: under1
     21300022: under2
-    21300024: mrSpin_12
+    21300024: idle
     21300026: walk3
     21300028: walk2
     21300030: walk1
+    21300032: backpedal2
+    21300034: backpedal1
+    21300036: idle
+    21300038: under3
+    21300040: walk4
+    21300042: mrSpin_31
+    21300044: jump
+    21300046: jump
+    21300048: backpedal3
+    21300050: mrSpin_19
+    21300052: mrSpin_28
+    21300054: mrSpin_32
+    21300056: mrSpin_34
+    21300058: mrSpin_35
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -66,163 +80,243 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: over1
+    - name: over3
       rect:
         serializedVersion: 2
-        x: 259
-        y: 696
-        width: 149
-        height: 145
+        x: 188
+        y: 910
+        width: 112
+        height: 135
       alignment: 9
-      pivot: {x: .349999994, y: 0}
+      pivot: {x: .200000003, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: over2
       rect:
         serializedVersion: 2
-        x: 427
-        y: 699
+        x: 321
+        y: 904
         width: 142
         height: 153
       alignment: 9
-      pivot: {x: .629999995, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: over3
-      rect:
-        serializedVersion: 2
-        x: 590
-        y: 705
-        width: 112
-        height: 135
-      alignment: 9
-      pivot: {x: .800000012, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: straight1
-      rect:
-        serializedVersion: 2
-        x: 252
-        y: 526
-        width: 149
-        height: 145
-      alignment: 9
       pivot: {x: .349999994, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: straight2
+    - name: over1
       rect:
         serializedVersion: 2
-        x: 410
-        y: 533
-        width: 142
-        height: 136
+        x: 481
+        y: 901
+        width: 150
+        height: 146
       alignment: 9
-      pivot: {x: .639999986, y: 0}
+      pivot: {x: .660000026, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: straight3
       rect:
         serializedVersion: 2
-        x: 583
-        y: 534
+        x: 199
+        y: 740
         width: 112
         height: 136
       alignment: 9
-      pivot: {x: .800000012, y: 0}
+      pivot: {x: .200000003, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mrSpin_6
+    - name: straight2
       rect:
         serializedVersion: 2
-        x: 616
-        y: 345
-        width: 95
-        height: 145
-      alignment: 0
-      pivot: {x: .5, y: .5}
+        x: 338
+        y: 738
+        width: 142
+        height: 136
+      alignment: 9
+      pivot: {x: .360000014, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mrSpin_7
+    - name: straight1
       rect:
         serializedVersion: 2
-        x: 437
-        y: 356
-        width: 95
+        x: 488
+        y: 731
+        width: 150
         height: 146
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .680000007, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mrSpin_8
+    - name: backpedal3
       rect:
         serializedVersion: 2
-        x: 255
-        y: 356
-        width: 89
-        height: 145
-      alignment: 0
-      pivot: {x: .5, y: .5}
+        x: 232
+        y: 564
+        width: 99
+        height: 144
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: backpedal2
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 556
+        width: 130
+        height: 148
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: backpedal1
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 558
+        width: 99
+        height: 144
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: idle
       rect:
         serializedVersion: 2
-        x: 5
-        y: 364
+        x: 790
+        y: 569
         width: 95
         height: 146
       alignment: 7
       pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: under1
+    - name: under3
       rect:
         serializedVersion: 2
-        x: 249
-        y: 173
-        width: 90
-        height: 144
+        x: 176
+        y: 383
+        width: 110
+        height: 142
       alignment: 9
-      pivot: {x: .600000024, y: 0}
+      pivot: {x: .200000003, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: under2
       rect:
         serializedVersion: 2
-        x: 425
-        y: 175
+        x: 353
+        y: 379
         width: 112
         height: 143
       alignment: 9
-      pivot: {x: .800000012, y: 0}
+      pivot: {x: .200000003, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: mrSpin_12
+    - name: under1
       rect:
         serializedVersion: 2
-        x: 604
-        y: 178
-        width: 110
-        height: 142
+        x: 551
+        y: 379
+        width: 88
+        height: 144
       alignment: 9
-      pivot: {x: .800000012, y: 0}
+      pivot: {x: .379999995, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: walk3
+    - name: mrSpin_19
       rect:
         serializedVersion: 2
-        x: 631
-        y: 7
-        width: 90
-        height: 148
+        x: 625
+        y: 448
+        width: 16
+        height: 12
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: walk4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 205
+        width: 98
+        height: 147
       alignment: 7
       pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: walk2
       rect:
         serializedVersion: 2
-        x: 458
-        y: 0
-        width: 84
-        height: 153
+        x: 268
+        y: 210
+        width: 97
+        height: 148
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: walk3
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 207
+        width: 94
+        height: 155
       alignment: 7
       pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: walk1
       rect:
         serializedVersion: 2
-        x: 232
-        y: 4
-        width: 109
-        height: 146
+        x: 377
+        y: 208
+        width: 116
+        height: 154
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: mrSpin_28
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 16
+        width: 110
+        height: 136
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: mrSpin_31
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 75
+        width: 75
+        height: 95
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: mrSpin_32
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 100
+        width: 16
+        height: 13
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: jump
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 0
+        width: 92
+        height: 167
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: mrSpin_34
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 24
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: mrSpin_35
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 27
+        width: 50
+        height: 49
       alignment: 7
       pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

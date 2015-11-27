@@ -50,10 +50,16 @@ public class playermove : MonoBehaviour {
 			float movespeed;
 
 			// Check if backpedaling
-			if(player == PlayerIndex.One)
+			if(player == PlayerIndex.One){
 				movespeed = backpedal;
-			else
+				ator.SetBool("backpedal", true);
+				ator.SetBool("running", false);
+			}
+			else{
 				movespeed = foreward;
+				ator.SetBool("running", true);
+				ator.SetBool("backpedal", false);
+			}
 
 			// Check for sprint -- cannot sprint if serve
 			if (padState.Buttons.RightShoulder == ButtonState.Pressed 
@@ -65,7 +71,7 @@ public class playermove : MonoBehaviour {
 
             // Apply Move
             transform.Translate(Vector3.left * movespeed * Time.fixedDeltaTime);
-            ator.SetBool("running", true);
+            
         }
         // Move Right
         else if (padState.DPad.Right == ButtonState.Pressed)
@@ -73,10 +79,16 @@ public class playermove : MonoBehaviour {
 			float movespeed;
 			
 			// Check if backpedaling
-			if(player == PlayerIndex.One)
+			if(player == PlayerIndex.One){
+				ator.SetBool("running", true);
+				ator.SetBool("backpedal", false);
 				movespeed = foreward;
-			else
+			} 
+			else {
 				movespeed = backpedal;
+				ator.SetBool("backpedal", true);
+				ator.SetBool("running", false);
+			}
 
 			// Check for Sprint -- cannot sprint if serve
 			if (padState.Buttons.RightShoulder == ButtonState.Pressed 
@@ -88,11 +100,11 @@ public class playermove : MonoBehaviour {
 
             // Apply Move
 			transform.Translate(Vector3.right * movespeed * Time.fixedDeltaTime); 
-            ator.SetBool("running", true);
         }
         else
         {
             ator.SetBool("running", false);
+			ator.SetBool("backpedal", false);
         }
 
         // Swings
@@ -146,15 +158,18 @@ public class playermove : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D coll){
 		if(coll.gameObject.tag == "ground"){
 			grounded = true;
+			ator.SetBool("jump", false);
 		}
 	}
 	void OnCollisionStay2D(Collision2D coll){
 		if(coll.gameObject.tag == "ground"){
 			grounded = true;
+			ator.SetBool("jump", false);
 		}
 	}
 	void OnCollisionExit2D(){
 		grounded = false;
+		ator.SetBool("jump", true);
 	}
 
 
