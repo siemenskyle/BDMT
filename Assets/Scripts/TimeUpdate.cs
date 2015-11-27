@@ -32,11 +32,14 @@ public class TimeUpdate : MonoBehaviour {
                 Application.LoadLevel(4);
             }
             //if player 2 won, load player 2 win screen
-            else
+			else if(ScoreCounter.leftScore < ScoreCounter.rightScore)
             {
                 Application.LoadLevel(5);
             }
-
+			else
+			{
+				Application.LoadLevel(6);
+			}
         }
     }
 }

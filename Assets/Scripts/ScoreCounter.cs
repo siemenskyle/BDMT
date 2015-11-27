@@ -12,6 +12,14 @@ public class ScoreCounter : MonoBehaviour {
     GameObject leftTimer;
     GameObject rightTimer;
 
+	public int getscore(int player){
+		if(player == 1)
+			return leftScore;
+		if(player == 2)
+			return rightScore;
+		return -1;
+	}
+
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -51,13 +59,7 @@ public class ScoreCounter : MonoBehaviour {
 		//checks the current score of each player
 		//game ends when score of either player is 11
 		//if player 1 won, load player 1 win screen
-		if (leftScore == 11) {
-			Application.LoadLevel (4);
-		}
-		//if player 2 won, load player 2 win screen
-		else if (rightScore == 11) {
-            Application.LoadLevel (5);
-		}
+
 	}
 
     void FixedUpdate()

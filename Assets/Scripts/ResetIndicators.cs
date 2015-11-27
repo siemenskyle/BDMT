@@ -4,9 +4,16 @@ using System.Collections;
 public class ResetIndicators : StateMachineBehaviour {
 
 	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-	//override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-	//
-	//}
+	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+
+		if (ScoreCounter.leftScore == 11) {
+			Application.LoadLevel (4);
+		}
+		//if player 2 won, load player 2 win screen
+		else if (ScoreCounter.rightScore == 11) {
+			Application.LoadLevel (5);
+		}
+	}
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
 	//override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
