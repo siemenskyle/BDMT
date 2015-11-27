@@ -9,39 +9,57 @@ public class birdhit : MonoBehaviour {
     public float hitMul;
     // Use this for initialization
 
+    public static int lastPlayerToHit;
+
     void OnTriggerEnter2D(Collider2D coll)
     {
 		// Bird is only thing this can collide with now that we fixed it
 		Rigidbody2D bird = coll.attachedRigidbody;
 
-		bird.velocity = Vector2.zero;
+        int hitter;
 
-        // check if the multiplier is been activated by the player, if so and it can be done then activate special move
-        if (GetComponentInParent<playermove>().hitMultiplier == true && GetComponentInParent<playermove>().specialPower >= 5)
+        if (transform.parent.position.x < 0)
         {
-            // if can multiply the hit force
-            bird.AddForce(new Vector2(hitMul * x, hitMul * y));
+            hitter = 1;
+        }
+        else
+        {
+            hitter = 2;
+        }
+
+		bird.velocity = Vector2.zero;
+        if (hitter != lastPlayerToHit)
+        {
+            // check if the multiplier is been activated by the player, if so and it can be done then activate special move
+            if (GetComponentInParent<playermove>().hitMultiplier == true && GetComponentInParent<playermove>().specialPower >= 5)
+            {
+                // if can multiply the hit force
+                bird.AddForce(new Vector2(hitMul * x, hitMul * y));
 
                 // if hits the bird, take the power away from the hit and play sound
                 this.enabled = false;
                 this.GetComponentInParent<playermove>().specialPower -= 5;
                 AudioSource a = coll.attachedRigidbody.gameObject.GetComponent<AudioSource>();
                 a.Play();
-        } else {
-            // if no multiplier, then just use regular hit force
-            bird.AddForce(new Vector2(x, y));
-
-            // if hits the bird, take the power away from the hit and play sound
-            if (coll.tag == "Bird")
-            {
-                this.enabled = false;
-                this.GetComponentInParent<playermove>().specialPower += 1;
-                if (this.GetComponentInParent<playermove>().specialPower > 10)
-                    this.GetComponentInParent<playermove>().specialPower = 10;
             }
+            else
+            {
+                // if no multiplier, then just use regular hit force
+                bird.AddForce(new Vector2(x, y));
+
+                // if hits the bird, take the power away from the hit and play sound
+                if (coll.tag == "Bird")
+                {
+                    this.enabled = false;
+                    this.GetComponentInParent<playermove>().specialPower += 1;
+                    if (this.GetComponentInParent<playermove>().specialPower > 10)
+                        this.GetComponentInParent<playermove>().specialPower = 10;
+                }
                 AudioSource a = coll.attachedRigidbody.gameObject.GetComponent<AudioSource>();
                 a.Play();
-		}
+                lastPlayerToHit = hitter;
+            }
+        }
         // make sure hit multiplier is off
         GetComponentInParent<playermove>().hitMultiplier = false;
 
