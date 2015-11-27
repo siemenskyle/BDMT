@@ -14,6 +14,8 @@ public class BirdieSpawn : MonoBehaviour {
 	public KeyCode start;
 	Transform birdTransform;
 
+	Animator pointAnim;
+
 	Transform playerOneSpawn;
 	Transform playerTwoSpawn;
 	Rigidbody2D r_body;
@@ -27,24 +29,33 @@ public class BirdieSpawn : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//Set required variables
-		isPlaying = false;
-		birdTransform = transform;
-		firstPlayerServe = true;
-		secondPlayerServe = false;
-
-		playerOneSpawn = GameObject.FindGameObjectWithTag("PlayerLeft").GetComponentsInChildren<Transform> ()[4];
-		playerTwoSpawn = GameObject.FindGameObjectWithTag("PlayerRight").GetComponentsInChildren<Transform> ()[4];
-
+		// Get components
 		r_body = GetComponent<Rigidbody2D> ();
 		cil_col = GetComponent<CircleCollider2D> ();
 		box_col = GetComponent<BoxCollider2D> ();
+		playerOneSpawn = GameObject.FindGameObjectWithTag("PlayerLeft").GetComponentsInChildren<Transform> ()[4];
+		playerTwoSpawn = GameObject.FindGameObjectWithTag("PlayerRight").GetComponentsInChildren<Transform> ()[4];
+		pointAnim = GameObject.Find ("Indicators").GetComponent<Animator>();
+
+		//Set required variables
+		isPlaying = false;
+		birdTransform = transform;
+
+		pointAnim.SetBool("start", true);
+		//Random first serve
+		if (Random.value > 0.5f) {
+			firstPlayerServe = true;
+			secondPlayerServe = false;
+			pointAnim.SetBool("p1", true);
+		} else {
+			firstPlayerServe = false;
+			secondPlayerServe = true;
+			pointAnim.SetBool("p2", true);
+		}
 
 		//Disable two colliders
 		cil_col.enabled = false;
 		box_col.enabled = false;
-
-
 	}
 
 	// Update is called once per frame
@@ -101,14 +112,19 @@ public class BirdieSpawn : MonoBehaviour {
 			isPlaying = false;
 			cil_col.enabled = false;
 			box_col.enabled = false;
+			if(transform.position.x > 18 || transform.position.x < -18)
+				pointAnim.SetBool("out", true);
+
 			//player two scored, their serve
 			if ((transform.position.x < 0 && transform.position.x >= -18) 
 			       ||  transform.position.x > 18) {
 				secondPlayerServe = true;
+				pointAnim.SetBool("p2", true);
 			//Player one scored, their serve
 			} else if ((transform.position.x > 0 && transform.position.x <= 18) 
 		           || transform.position.x < -18) {
 				firstPlayerServe = true;
+				pointAnim.SetBool("p1", true);
 			}
 
 			GameObject.FindGameObjectWithTag("PlayerLeft").GetComponent< playermove >().setserve(true);
