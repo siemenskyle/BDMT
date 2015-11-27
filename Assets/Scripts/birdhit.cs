@@ -7,7 +7,6 @@ public class birdhit : MonoBehaviour {
 	public float x;
 	public float y;
     public float hitMul;
-    // Use this for initialization
 
     public static int lastPlayerToHit;
 
@@ -27,9 +26,9 @@ public class birdhit : MonoBehaviour {
             hitter = 2;
         }
 
-		bird.velocity = Vector2.zero;
         if (hitter != lastPlayerToHit)
         {
+			bird.velocity = Vector2.zero;
             // check if the multiplier is been activated by the player, if so and it can be done then activate special move
             if (GetComponentInParent<playermove>().hitMultiplier == true && GetComponentInParent<playermove>().specialPower >= 5)
             {
@@ -57,7 +56,8 @@ public class birdhit : MonoBehaviour {
                 }
                 AudioSource a = coll.attachedRigidbody.gameObject.GetComponent<AudioSource>();
                 a.Play();
-                lastPlayerToHit = hitter;
+                //lastPlayerToHit = hitter;
+				Invoke ("lasthitchange", 0.2f);
             }
         }
         // make sure hit multiplier is off
@@ -66,6 +66,25 @@ public class birdhit : MonoBehaviour {
         GameObject.FindGameObjectWithTag("PlayerLeft").GetComponent< playermove >().setserve(false);
 		GameObject.FindGameObjectWithTag("PlayerRight").GetComponent< playermove >().setserve(false);
     }
+
+	void FixedUpdate(){
+		if(GameObject.FindGameObjectWithTag("Bird").GetComponent< BirdieSpawn >().isPlaying == false)
+			lastPlayerToHit = 0;
+	}
+
+	void lasthitchange(){
+		int hitter;
+		if (transform.parent.position.x < 0)
+		{
+			hitter = 1;
+		}
+		else
+		{
+			hitter = 2;
+		}
+		
+		lastPlayerToHit = hitter;
+	}
 
 	// Flip X force, used if on P2 side
 	public void flipx(){
