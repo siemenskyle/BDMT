@@ -6,8 +6,11 @@ public class TimeUpdate : MonoBehaviour {
     GameObject timer;
     public float deltaTime;
 
-	// Use this for initialization
-	void Start () {
+    //how long a match should go
+    public float matchLength;
+
+    // Use this for initialization
+    void Start () {
         // Get the location of the timer UI element, where time is kept on screen
         timer = GameObject.FindGameObjectWithTag("ScoreTimer");
     }
@@ -21,6 +24,19 @@ public class TimeUpdate : MonoBehaviour {
     {
         // Put the difference of time between current game time and the time the last round started on screen
         // with 1 decimal place
-        timer.GetComponent<Text>().text = (Time.realtimeSinceStartup - deltaTime).ToString("F1");
+        timer.GetComponent<Text>().text = (matchLength - (Time.realtimeSinceStartup - deltaTime)).ToString("F1");
+
+        if((matchLength - (Time.realtimeSinceStartup - deltaTime)) <= 0){
+            if (ScoreCounter.leftScore > ScoreCounter.rightScore)
+            {
+                Application.LoadLevel(4);
+            }
+            //if player 2 won, load player 2 win screen
+            else
+            {
+                Application.LoadLevel(5);
+            }
+
+        }
     }
 }

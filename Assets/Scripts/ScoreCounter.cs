@@ -12,6 +12,7 @@ public class ScoreCounter : MonoBehaviour {
     GameObject leftTimer;
     GameObject rightTimer;
 
+
     void OnTriggerEnter2D(Collider2D other)
     {
         // if the bird hits the grass
