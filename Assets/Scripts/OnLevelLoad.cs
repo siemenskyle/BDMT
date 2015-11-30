@@ -28,6 +28,6 @@ public class OnLevelLoad : MonoBehaviour {
 		foreach (birdhit h in p2.GetComponentsInChildren<birdhit>())
 			h.flipx();
 
-		Instantiate(bird);
+		Instantiate<GameObject>(bird);
 	}
 }
