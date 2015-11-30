@@ -16,6 +16,7 @@ public class playermove : MonoBehaviour {
 	// Player Objects
 	Rigidbody2D rbody;
 	Animator ator;
+	Transform groundchk;
 	// Game Pad
 	GamePadState prevState;
 	GamePadState padState;
@@ -33,6 +34,7 @@ public class playermove : MonoBehaviour {
 		grounded = false;
 		serve = true;
         hitMultiplier = false;
+		groundchk = GetComponentsInChildren<Transform> ()[5];
 	}
 	
 	// Update is called once per frame
@@ -158,23 +160,16 @@ public class playermove : MonoBehaviour {
 	}
 
 	// Check if grounded
-	void OnCollisionEnter2D(Collision2D coll){
-		if(coll.gameObject.tag == "ground"){
-			grounded = true;
+	void FixedUpdate()
+	{
+		//print (groundchk.position);
+		grounded = Physics2D.Linecast(rbody.position, groundchk.position, 1 << LayerMask.NameToLayer("Ground"));
+		if(grounded)
 			ator.SetBool("jump", false);
-		}
-	}
-	void OnCollisionStay2D(Collision2D coll){
-		if(coll.gameObject.tag == "ground"){
-			grounded = true;
-			ator.SetBool("jump", false);
-		}
-	}
-	void OnCollisionExit2D(){
-		grounded = false;
-		ator.SetBool("jump", true);
-	}
+		else
+			ator.SetBool("jump", true);
 
+	}
 
 	// PUBLIC FUNCTIONS USED OUTSIDE THIS
 	// Set serving flag
