@@ -16,6 +16,7 @@ public class ShowPower : MonoBehaviour {
     public Sprite powerTwo;
     public Sprite powerOne;
     public Sprite powerZero;
+	public Color spriteColor;
 
     // The player of whom will have special power to be displayed in the graph
     public GameObject player;
@@ -33,37 +34,48 @@ public class ShowPower : MonoBehaviour {
         {
             case 0:
                 this.GetComponent<SpriteRenderer>().sprite = powerZero;
+				this.GetComponent<SpriteRenderer>().color = spriteColor;
                 break;
             case 1:
                 this.GetComponent<SpriteRenderer>().sprite = powerOne;
-                break;
+				this.GetComponent<SpriteRenderer>().color = spriteColor;
+				break;
             case 2:
                 this.GetComponent<SpriteRenderer>().sprite = powerTwo;
+				this.GetComponent<SpriteRenderer>().color = spriteColor;
                 break;
             case 3:
                 this.GetComponent<SpriteRenderer>().sprite = powerThree;
+				this.GetComponent<SpriteRenderer>().color = spriteColor;
                 break;
              case 4:
                 this.GetComponent<SpriteRenderer>().sprite = powerFour;
+				this.GetComponent<SpriteRenderer>().color = spriteColor;
                 break;
             case 5:
                 this.GetComponent<SpriteRenderer>().sprite = powerFive;
-                break;
+				this.GetComponent<SpriteRenderer>().color = spriteColor;
+				break;
             case 6:
                 this.GetComponent<SpriteRenderer>().sprite = powerSix;
-                break;
+				this.GetComponent<SpriteRenderer>().color = spriteColor;
+				break;
             case 7:
                 this.GetComponent<SpriteRenderer>().sprite = powerSeven;
-                break;
+				this.GetComponent<SpriteRenderer>().color = spriteColor;
+				break;
             case 8:
                 this.GetComponent<SpriteRenderer>().sprite = powerEight;
-                break;
+				this.GetComponent<SpriteRenderer>().color = spriteColor;
+				break;
             case 9:
                 this.GetComponent<SpriteRenderer>().sprite = powerNine;
-                break;
+				this.GetComponent<SpriteRenderer>().color = spriteColor;
+				break;
             case 10:
                 this.GetComponent<SpriteRenderer>().sprite = powerTen;
-                break;
+				this.GetComponent<SpriteRenderer>().color = spriteColor;
+				break;
         }
 	}
 }
