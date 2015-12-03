@@ -14,6 +14,10 @@ public class BirdieSpawn : MonoBehaviour {
 	public KeyCode start;
 	Transform birdTransform;
 
+    float deltaTime;
+
+    public float ForceServeTime;
+
 	Animator pointAnim;
 
 	Transform playerOneSpawn;
@@ -37,9 +41,10 @@ public class BirdieSpawn : MonoBehaviour {
 		playerOneSpawn = GameObject.FindGameObjectWithTag("PlayerLeft").GetComponentsInChildren<Transform> ()[4];
 		playerTwoSpawn = GameObject.FindGameObjectWithTag("PlayerRight").GetComponentsInChildren<Transform> ()[4];
 		pointAnim = GameObject.Find ("Indicators").GetComponent<Animator>();
-
-		//Set required variables
-		wait = true;
+        deltaTime = Time.realtimeSinceStartup;
+        print(deltaTime.ToString());
+        //Set required variables
+        wait = true;
 		isPlaying = false;
 		birdTransform = transform;
 
@@ -84,13 +89,23 @@ public class BirdieSpawn : MonoBehaviour {
 			}
 
 			if(prevState.Buttons.A == ButtonState.Released && padState.Buttons.A == ButtonState.Pressed)
+
 				servebird();
-		}
+            if ((ForceServeTime - (Time.realtimeSinceStartup - deltaTime)) <= 0)
+            {
+                // force a serve
+                servebird();
+            }
 
-	}
 
-	// Serve the bird, enable colliders, and set boolean flags.
-	void servebird()
+        }
+
+
+
+    }
+
+    // Serve the bird, enable colliders, and set boolean flags.
+    void servebird()
 	{
 		isPlaying = true;
 		r_body.velocity = Vector2.zero;
