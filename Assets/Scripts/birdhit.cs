@@ -9,6 +9,7 @@ public class birdhit : MonoBehaviour {
     public float hitMul;
 
     public static int lastPlayerToHit;
+	public static int lastToHitNOW;
 
     void OnTriggerEnter2D(Collider2D coll)
     {
@@ -25,7 +26,6 @@ public class birdhit : MonoBehaviour {
         {
             hitter = 2;
         }
-
         if (hitter != lastPlayerToHit)
         {
 			bird.velocity = Vector2.zero;
@@ -45,14 +45,17 @@ public class birdhit : MonoBehaviour {
             {
                 // if no multiplier, then just use regular hit force
                 bird.AddForce(new Vector2(x, y));
-
                 // if hits the bird, take the power away from the hit and play sound
                 if (coll.tag == "Bird")
                 {
-                    this.enabled = false;
-                    this.GetComponentInParent<playermove>().specialPower += 1;
-                    if (this.GetComponentInParent<playermove>().specialPower > 10)
-                        this.GetComponentInParent<playermove>().specialPower = 10;
+                    if (lastToHitNOW != hitter)
+                    {
+                        this.enabled = false;
+                        this.GetComponentInParent<playermove>().specialPower += 1;
+                        if (this.GetComponentInParent<playermove>().specialPower > 10)
+                            this.GetComponentInParent<playermove>().specialPower = 10;
+						lastToHitNOW = hitter;
+                    }
                 }
                 AudioSource a = coll.attachedRigidbody.gameObject.GetComponent<AudioSource>();
                 a.Play();
@@ -70,6 +73,7 @@ public class birdhit : MonoBehaviour {
 	void FixedUpdate(){
 		if(GameObject.FindGameObjectWithTag("Bird").GetComponent< BirdieSpawn >().isPlaying == false)
 			lastPlayerToHit = 0;
+			lastToHitNOW = 0;
 	}
 
 	void lasthitchange(){
