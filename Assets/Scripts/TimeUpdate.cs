@@ -40,6 +40,7 @@ public class TimeUpdate : MonoBehaviour {
 			{
 				Application.LoadLevel(6);
 			}
+            
         }
     }
 }
