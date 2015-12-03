@@ -50,7 +50,7 @@ public class ScoreCounter : MonoBehaviour {
         rightTimer = GameObject.FindGameObjectWithTag("RightScore");
         // This delta time is updated so we know when a round starts. Then the current time in round is the difference
         // between this and the time since the program started up (See TimerUpdate.cs)
-        GameObject.FindGameObjectWithTag("ScoreBelt").GetComponent<TimeUpdate>().deltaTime = Time.realtimeSinceStartup;
+        TimeUpdate.deltaTime = Time.realtimeSinceStartup;
     }
 	
 	// Update is called once per frame
