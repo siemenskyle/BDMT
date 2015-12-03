@@ -41,14 +41,14 @@ public class BirdieSpawn : MonoBehaviour {
 		playerOneSpawn = GameObject.FindGameObjectWithTag("PlayerLeft").GetComponentsInChildren<Transform> ()[4];
 		playerTwoSpawn = GameObject.FindGameObjectWithTag("PlayerRight").GetComponentsInChildren<Transform> ()[4];
 		pointAnim = GameObject.Find ("Indicators").GetComponent<Animator>();
-        deltaTime = Time.realtimeSinceStartup;
         print(deltaTime.ToString());
         //Set required variables
         wait = true;
 		isPlaying = false;
 		birdTransform = transform;
+        deltaTime = Time.realtimeSinceStartup;
 
-		pointAnim.SetBool("start", true);
+        pointAnim.SetBool("start", true);
 		//Random first serve
 		if (Random.value > 0.5f) {
 			firstPlayerServe = true;
@@ -70,15 +70,17 @@ public class BirdieSpawn : MonoBehaviour {
 		//If bird is in serve mode, keep moving it to the player one spawn position
 		if (!isPlaying && firstPlayerServe) {
 			birdTransform.position = playerOneSpawn.position;
-		}
 
-		//If bird is in serve mode, keep moving it to the player two spawn position
-		if (!isPlaying && secondPlayerServe) {
+        }
+
+        //If bird is in serve mode, keep moving it to the player two spawn position
+        if (!isPlaying && secondPlayerServe) {
 			birdTransform.position = playerTwoSpawn.position;
-		}
 
-		//if it is possible to serve the bird, and key is inputted, serve
-		if(!isPlaying && !wait){
+        }
+
+        //if it is possible to serve the bird, and key is inputted, serve
+        if (!isPlaying && !wait){
 			prevState = padState;
 
 			if(firstPlayerServe){
@@ -149,8 +151,10 @@ public class BirdieSpawn : MonoBehaviour {
 
 			GameObject.Find("circle").GetComponent<SpriteRenderer>().enabled = false;
 			GameObject.Find("circle").GetComponent<AudioSource>().enabled = false;
-		}
-	}
+            deltaTime = Time.realtimeSinceStartup;
+
+        }
+    }
 
 	public void setwait(bool set){
 		wait = set;
