@@ -8,7 +8,8 @@ public class LoadOnClick : MonoBehaviour {
 
         ScoreCounter.leftScore = 0;
         ScoreCounter.rightScore = 0;
-        Application.LoadLevel (level);
         TimeUpdate.deltaTime = Time.realtimeSinceStartup;
+
+        Application.LoadLevel (level);
         }
 }
