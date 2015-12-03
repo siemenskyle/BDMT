@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class TimeUpdate : MonoBehaviour {
     GameObject timer;
-    public float deltaTime;
+    public static float deltaTime;
 
     //how long a match should go
     public float matchLength;

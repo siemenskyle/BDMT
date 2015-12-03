@@ -9,6 +9,6 @@ public class LoadOnClick : MonoBehaviour {
         ScoreCounter.leftScore = 0;
         ScoreCounter.rightScore = 0;
         Application.LoadLevel (level);
-        GameObject.FindGameObjectWithTag("ScoreBelt").GetComponent<TimeUpdate>().deltaTime = Time.realtimeSinceStartup;
-            }
+        TimeUpdate.deltaTime = Time.realtimeSinceStartup;
+        }
 }
