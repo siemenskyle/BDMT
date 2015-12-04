@@ -26,9 +26,6 @@ public class Wind : MonoBehaviour {
 			waitwind = true;
 			Invoke ("applywind", Random.Range (windfreqlow, windfreqhigh));
 		} 
-
-		//ator.SetBool ("windleft", false);
-		//ator.SetBool ("windright", false);
 	}
 
 	void applywind() {
