@@ -25,7 +25,9 @@ public class Pause : MonoBehaviour {
 		quitbutton = GameObject.Find ("QuitB");
 		resumebutton = GameObject.Find ("ResumeB");
 		Invoke ("getplayers", 0.5f);
-		GameUnpause ();
+		quitbutton.SetActive (false);
+		resumebutton.SetActive (false);
+		//GameUnpause ();
 	}
 
 
@@ -53,6 +55,7 @@ public class Pause : MonoBehaviour {
 	}
 
 	public void GameUnpause() {
+		GameObject.Find("SpeedSelectCanvas").SetActive(false);
 		Time.timeScale = 1;
 		quitbutton.SetActive (false);
 		resumebutton.SetActive (false);

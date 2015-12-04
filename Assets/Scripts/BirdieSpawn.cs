@@ -10,13 +10,13 @@ public class BirdieSpawn : MonoBehaviour {
 	bool firstPlayerServe;
 	//Boolean used to flag if it is second player's serve
 	bool secondPlayerServe;
-	//Keycode for serving
-	public KeyCode start;
+
 	Transform birdTransform;
 
     float deltaTime;
 
     public float ForceServeTime;
+	public float gravscale;
 
 	Animator pointAnim;
 
@@ -47,6 +47,8 @@ public class BirdieSpawn : MonoBehaviour {
 		isPlaying = false;
 		birdTransform = transform;
         deltaTime = Time.realtimeSinceStartup;
+
+		r_body.gravityScale = gravscale;
 
         pointAnim.SetBool("start", true);
 		//Random first serve
@@ -109,6 +111,7 @@ public class BirdieSpawn : MonoBehaviour {
     // Serve the bird, enable colliders, and set boolean flags.
     void servebird()
 	{
+		r_body.gravityScale = gravscale;
 		isPlaying = true;
 		r_body.velocity = Vector2.zero;
 		r_body.AddForce(new Vector2(0, serveForce));

@@ -26,9 +26,6 @@ public class ScoreCounter : MonoBehaviour {
         // if the bird hits the grass
         if (other.name.Contains("grass"))
         {
-            // This is to reset the gravity on the bird incase the special move was used that increased it's gravitational force
-            GameObject.FindGameObjectWithTag("Bird").GetComponent<Rigidbody2D>().gravityScale = 0.7F;
-
             // If the bird lands on the left side, AND it's not out then right player gets a score
             if ((transform.position.x < 0 && transform.position.x >= -18) 
 			    ||  transform.position.x > 18) 
