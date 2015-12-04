@@ -42,13 +42,14 @@ public class Wind : MonoBehaviour {
 
 			Invoke ("applyforce", 1.2f);
 		}
+		waitwind = false;
 	}
 
 	void applyforce() {
 		print (force);
 		if (!ator.GetCurrentAnimatorStateInfo(0).IsName("New State"))
 			bird.AddForce (new Vector2(force, 0));
-		waitwind = false;
+		//waitwind = false;
 	}
 
 	void setbird(){

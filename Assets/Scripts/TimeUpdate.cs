@@ -17,16 +17,19 @@ public class TimeUpdate : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
 
     void FixedUpdate()
     {
         // Put the difference of time between current game time and the time the last round started on screen
         // with 1 decimal place
-        timer.GetComponent<Text>().text = (matchLength - (Time.realtimeSinceStartup - deltaTime)).ToString("F1");
+        timer.GetComponent<Text>().text = (matchLength).ToString("F1");
 
-        if((matchLength - (Time.realtimeSinceStartup - deltaTime)) <= 0){
+		if(GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdieSpawn>().isPlaying)
+			matchLength -= Time.fixedDeltaTime;
+
+		if(matchLength <= 0){
             if (ScoreCounter.leftScore > ScoreCounter.rightScore)
             {
                 Application.LoadLevel(4);

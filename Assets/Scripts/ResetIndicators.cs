@@ -6,11 +6,11 @@ public class ResetIndicators : StateMachineBehaviour {
 	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 
-		if (ScoreCounter.leftScore == 11) {
+		if (ScoreCounter.leftScore >= 11 && (ScoreCounter.leftScore - ScoreCounter.rightScore) > 1) {
 			Application.LoadLevel (4);
 		}
 		//if player 2 won, load player 2 win screen
-		else if (ScoreCounter.rightScore == 11) {
+		else if (ScoreCounter.rightScore >= 11 && (ScoreCounter.rightScore - ScoreCounter.leftScore) > 1) {
 			Application.LoadLevel (5);
 		}
 	}

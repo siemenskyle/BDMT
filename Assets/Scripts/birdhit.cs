@@ -9,6 +9,7 @@ public class birdhit : MonoBehaviour {
 	public float jumpx;
 	public float jumpy;
     public float hitMul;
+	public int specialcost;
 
     public static int lastPlayerToHit;
 	public static int lastToHitNOW;
@@ -51,7 +52,7 @@ public class birdhit : MonoBehaviour {
 
                 // if hits the bird, take the power away from the hit and play sound
                 this.enabled = false;
-                this.GetComponentInParent<playermove>().specialPower -= 5;
+                this.GetComponentInParent<playermove>().specialPower -= specialcost;
                 AudioSource a = coll.attachedRigidbody.gameObject.GetComponent<AudioSource>();
                 a.Play();
 				GetComponentInParent<playermove>().supercolor();

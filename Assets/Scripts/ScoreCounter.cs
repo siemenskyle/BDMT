@@ -52,11 +52,7 @@ public class ScoreCounter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-		//checks the current score of each player
-		//game ends when score of either player is 11
-		//if player 1 won, load player 1 win screen
-
+	
 	}
 
     void FixedUpdate()

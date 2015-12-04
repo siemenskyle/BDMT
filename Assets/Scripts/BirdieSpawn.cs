@@ -13,8 +13,6 @@ public class BirdieSpawn : MonoBehaviour {
 
 	Transform birdTransform;
 
-    float deltaTime;
-
     public float ForceServeTime;
 	public float gravscale;
 
@@ -41,12 +39,10 @@ public class BirdieSpawn : MonoBehaviour {
 		playerOneSpawn = GameObject.FindGameObjectWithTag("PlayerLeft").GetComponentsInChildren<Transform> ()[4];
 		playerTwoSpawn = GameObject.FindGameObjectWithTag("PlayerRight").GetComponentsInChildren<Transform> ()[4];
 		pointAnim = GameObject.Find ("Indicators").GetComponent<Animator>();
-        print(deltaTime.ToString());
         //Set required variables
         wait = true;
 		isPlaying = false;
 		birdTransform = transform;
-        deltaTime = Time.realtimeSinceStartup;
 
 		r_body.gravityScale = gravscale;
 
@@ -69,6 +65,11 @@ public class BirdieSpawn : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		if (isPlaying) {
+			cil_col.enabled = true;
+			box_col.enabled = true;
+		}
+
 		//If bird is in serve mode, keep moving it to the player one spawn position
 		if (!isPlaying && firstPlayerServe) {
 			birdTransform.position = playerOneSpawn.position;
@@ -95,17 +96,8 @@ public class BirdieSpawn : MonoBehaviour {
 			if(prevState.Buttons.A == ButtonState.Released && padState.Buttons.A == ButtonState.Pressed)
 
 				servebird();
-            if ((ForceServeTime - (Time.realtimeSinceStartup - deltaTime)) <= 0)
-            {
-                // force a serve
-                servebird();
-            }
-
 
         }
-
-
-
     }
 
     // Serve the bird, enable colliders, and set boolean flags.
@@ -154,7 +146,6 @@ public class BirdieSpawn : MonoBehaviour {
 
 			GameObject.Find("circle").GetComponent<SpriteRenderer>().enabled = false;
 			GameObject.Find("circle").GetComponent<AudioSource>().enabled = false;
-            deltaTime = Time.realtimeSinceStartup;
 
         }
     }
