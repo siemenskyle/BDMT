@@ -38,6 +38,7 @@ public class playermove : MonoBehaviour {
 		serve = true;
         hitMultiplier = false;
 		groundchk = GetComponentsInChildren<Transform> ()[5];
+
 	}
 	
 	// Update is called once per frame
@@ -55,7 +56,7 @@ public class playermove : MonoBehaviour {
 			return;
 
         // Move Lefts
-        if (padState.DPad.Left == ButtonState.Pressed)
+        if (padState.DPad.Left == ButtonState.Pressed || padState.ThumbSticks.Left.X <= -0.5f)
         {
 			float movespeed;
 
@@ -85,7 +86,7 @@ public class playermove : MonoBehaviour {
             
         }
         // Move Right
-        else if (padState.DPad.Right == ButtonState.Pressed)
+		else if (padState.DPad.Right == ButtonState.Pressed || padState.ThumbSticks.Left.X >= 0.5f)
         {
 			float movespeed;
 			
@@ -126,10 +127,10 @@ public class playermove : MonoBehaviour {
             if (padState.Buttons.RightShoulder == ButtonState.Pressed)
                 hitMultiplier = true;
             // over hit if up held
-            if (padState.DPad.Up == ButtonState.Pressed)
+			if (padState.DPad.Up == ButtonState.Pressed || padState.ThumbSticks.Left.Y >= 0.5f)
                 ator.SetBool("over", true);
             // under hit if down held
-            else if (padState.DPad.Down == ButtonState.Pressed)
+			else if (padState.DPad.Down == ButtonState.Pressed || padState.ThumbSticks.Left.Y <= -0.5f)
                 ator.SetBool("under", true);
             // no direction held means normal hit
             else
