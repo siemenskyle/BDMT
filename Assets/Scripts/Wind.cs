@@ -7,7 +7,6 @@ public class Wind : MonoBehaviour {
 	public float windforcehigh;
 	public float windfreqlow;
 	public float windfreqhigh;
-	public KeyCode windbutton;
 	Rigidbody2D bird;
 	bool waitwind;
 	Animator ator;
@@ -30,21 +29,22 @@ public class Wind : MonoBehaviour {
 
 		//ator.SetBool ("windleft", false);
 		//ator.SetBool ("windright", false);
-		if (Input.GetKeyDown(windbutton))
-			applywind ();
 	}
 
 	void applywind() {
-		force = Random.Range (windforcelow, windforcehigh);
+		if(GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdieSpawn>().isPlaying)
+		{
+			force = Random.Range (windforcelow, windforcehigh);
 
-		if (Random.value > 0.5) {
-			ator.SetTrigger("windleft");
-			force *= -1;
-		} else {
-			ator.SetTrigger("windright");
+			if (Random.value > 0.5) {
+				ator.SetTrigger("windleft");
+				force *= -1;
+			} else {
+				ator.SetTrigger("windright");
+			}
+
+			Invoke ("applyforce", 1.2f);
 		}
-
-		Invoke ("applyforce", 0.4f);
 	}
 
 	void applyforce() {

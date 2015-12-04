@@ -13,6 +13,9 @@ public class playermove : MonoBehaviour {
     public float highGravity;
 	public double specialPower;
 	public PlayerIndex player;
+	public Color sprintcolor;
+	public Color s_hitcolor;
+	public Color specialcolor;
 	// Player Objects
 	Rigidbody2D rbody;
 	Animator ator;
@@ -46,6 +49,8 @@ public class playermove : MonoBehaviour {
 		ator.SetBool("straight", false);
 		ator.SetBool("under", false);
 
+		this.GetComponentsInChildren<SpriteRenderer>()[4].color = new Color(0f, 0f, 0f, 0f);
+
 		if(wait)
 			return;
 
@@ -72,6 +77,7 @@ public class playermove : MonoBehaviour {
             {
 				movespeed = movespeed * sprintMult;
                 specialPower -= sprintCost * Time.fixedDeltaTime;
+				this.GetComponentsInChildren<SpriteRenderer>()[4].color = sprintcolor;
             }
 
             // Apply Move
@@ -101,6 +107,7 @@ public class playermove : MonoBehaviour {
             {
 				movespeed = movespeed * sprintMult;
                 specialPower -= sprintCost * Time.fixedDeltaTime;
+				this.GetComponentsInChildren<SpriteRenderer>()[4].color = sprintcolor;
             }
 
             // Apply Move
@@ -156,6 +163,7 @@ public class playermove : MonoBehaviour {
 			GameObject.Find("circle").GetComponent<SpriteRenderer>().enabled = true;
 			GameObject.Find("circle").GetComponent<AudioSource>().enabled = true;
 			specialPower -= 5;
+
 		}
 	}
 
