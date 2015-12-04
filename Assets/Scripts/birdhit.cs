@@ -6,6 +6,8 @@ public class birdhit : MonoBehaviour {
     CircleCollider2D coll;
 	public float x;
 	public float y;
+	public float jumpx;
+	public float jumpy;
     public float hitMul;
 
     public static int lastPlayerToHit;
@@ -15,8 +17,8 @@ public class birdhit : MonoBehaviour {
     {
 		// Bird is only thing this can collide with now that we fixed it
 		Rigidbody2D bird = coll.attachedRigidbody;
-
         int hitter;
+	
 
         if (transform.parent.position.x < 0)
         {
@@ -28,23 +30,36 @@ public class birdhit : MonoBehaviour {
         }
         if (hitter != lastPlayerToHit)
         {
+			float hitx;
+			float hity;
+
+			if(GetComponentInParent<playermove>().grounded){
+				hitx = x;
+				hity = y;
+			} else {
+				hitx = jumpx;
+				hity = jumpy;
+			}
+		
+
 			bird.velocity = Vector2.zero;
             // check if the multiplier is been activated by the player, if so and it can be done then activate special move
             if (GetComponentInParent<playermove>().hitMultiplier == true && GetComponentInParent<playermove>().specialPower >= 5)
             {
                 // if can multiply the hit force
-                bird.AddForce(new Vector2(hitMul * x, hitMul * y));
+                bird.AddForce(new Vector2(hitMul * hitx, hitMul * hity));
 
                 // if hits the bird, take the power away from the hit and play sound
                 this.enabled = false;
                 this.GetComponentInParent<playermove>().specialPower -= 5;
                 AudioSource a = coll.attachedRigidbody.gameObject.GetComponent<AudioSource>();
                 a.Play();
+				GetComponentInParent<playermove>().supercolor();
             }
             else
             {
                 // if no multiplier, then just use regular hit force
-                bird.AddForce(new Vector2(x, y));
+                bird.AddForce(new Vector2(hitx, hity));
                 // if hits the bird, take the power away from the hit and play sound
                 if (coll.tag == "Bird")
                 {
@@ -93,5 +108,6 @@ public class birdhit : MonoBehaviour {
 	// Flip X force, used if on P2 side
 	public void flipx(){
 		x *= -1;
+		jumpx *= -1;
 	}
 }

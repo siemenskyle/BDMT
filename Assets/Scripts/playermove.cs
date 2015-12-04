@@ -16,6 +16,7 @@ public class playermove : MonoBehaviour {
 	public Color sprintcolor;
 	public Color s_hitcolor;
 	public Color specialcolor;
+	public int specialcost;
 	// Player Objects
 	Rigidbody2D rbody;
 	Animator ator;
@@ -24,9 +25,10 @@ public class playermove : MonoBehaviour {
 	GamePadState prevState;
 	GamePadState padState;
 	// Flags
-	bool grounded;
+	public bool grounded;
 	bool serve;
 	bool wait;
+	bool wassprint;
 
 
 	// Use this for initialization
@@ -50,10 +52,12 @@ public class playermove : MonoBehaviour {
 		ator.SetBool("straight", false);
 		ator.SetBool("under", false);
 
-		this.GetComponentsInChildren<SpriteRenderer>()[4].color = new Color(0f, 0f, 0f, 0f);
-
 		if(wait)
 			return;
+
+		if(wassprint)
+			resetcolor();
+		wassprint = false;
 
         // Move Lefts
         if (padState.DPad.Left == ButtonState.Pressed || padState.ThumbSticks.Left.X <= -0.5f)
@@ -79,6 +83,7 @@ public class playermove : MonoBehaviour {
 				movespeed = movespeed * sprintMult;
                 specialPower -= sprintCost * Time.fixedDeltaTime;
 				this.GetComponentsInChildren<SpriteRenderer>()[4].color = sprintcolor;
+				wassprint = true;
             }
 
             // Apply Move
@@ -109,6 +114,7 @@ public class playermove : MonoBehaviour {
 				movespeed = movespeed * sprintMult;
                 specialPower -= sprintCost * Time.fixedDeltaTime;
 				this.GetComponentsInChildren<SpriteRenderer>()[4].color = sprintcolor;
+				wassprint = true;
             }
 
             // Apply Move
@@ -158,14 +164,26 @@ public class playermove : MonoBehaviour {
 	// Cannot use if already activated by self or other player
 	private void specialmove()
 	{
-		if(specialPower >= 5 && GameObject.FindGameObjectWithTag("Bird").GetComponent<Rigidbody2D>().gravityScale != highGravity)
+		if(specialPower >= specialcost && GameObject.FindGameObjectWithTag("Bird").GetComponent<Rigidbody2D>().gravityScale != highGravity)
 		{
 			GameObject.FindGameObjectWithTag("Bird").GetComponent<Rigidbody2D>().gravityScale = highGravity;
 			GameObject.Find("circle").GetComponent<SpriteRenderer>().enabled = true;
 			GameObject.Find("circle").GetComponent<AudioSource>().enabled = true;
-			specialPower -= 5;
-
+			specialPower -= specialcost;
+			this.GetComponentsInChildren<SpriteRenderer>()[4].color = specialcolor;
+			Invoke("resetcolor", 0.7f);
 		}
+	}
+
+	void resetcolor()
+	{
+		this.GetComponentsInChildren<SpriteRenderer>()[4].color = new Color(0f, 0f, 0f, 0f);
+	}
+
+	public void supercolor()
+	{
+		this.GetComponentsInChildren<SpriteRenderer>()[4].color = s_hitcolor;
+		Invoke("resetcolor", 0.3f);
 	}
 
 	// Check if grounded
