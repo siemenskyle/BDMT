@@ -10,7 +10,6 @@ public class playermove : MonoBehaviour {
     public float sprintMult;
 	public float jumpforce;
     public float sprintCost;
-    public float highGravity;
 	public double specialPower;
 	public PlayerIndex player;
 	public Color sprintcolor;
@@ -29,10 +28,11 @@ public class playermove : MonoBehaviour {
 	bool serve;
 	bool wait;
 	bool wassprint;
+    public static float standardGravity;
+    public float GravityMultiply;
 
-
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		rbody = GetComponent<Rigidbody2D> ();
 		ator = GetComponentInChildren<Animator> ();
         specialPower = 10;
@@ -40,7 +40,6 @@ public class playermove : MonoBehaviour {
 		serve = true;
         hitMultiplier = false;
 		groundchk = GetComponentsInChildren<Transform> ()[5];
-
 	}
 	
 	// Update is called once per frame
@@ -164,9 +163,9 @@ public class playermove : MonoBehaviour {
 	// Cannot use if already activated by self or other player
 	private void specialmove()
 	{
-		if(specialPower >= specialcost && GameObject.FindGameObjectWithTag("Bird").GetComponent<Rigidbody2D>().gravityScale != highGravity)
+		if(specialPower >= specialcost && GameObject.FindGameObjectWithTag("Bird").GetComponent<Rigidbody2D>().gravityScale != (GravityMultiply * standardGravity))
 		{
-			GameObject.FindGameObjectWithTag("Bird").GetComponent<Rigidbody2D>().gravityScale = highGravity;
+			GameObject.FindGameObjectWithTag("Bird").GetComponent<Rigidbody2D>().gravityScale = (GravityMultiply * standardGravity);
 			GameObject.Find("circle").GetComponent<SpriteRenderer>().enabled = true;
 			GameObject.Find("circle").GetComponent<AudioSource>().enabled = true;
 			specialPower -= specialcost;

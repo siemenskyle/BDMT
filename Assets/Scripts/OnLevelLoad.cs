@@ -61,6 +61,7 @@ public class OnLevelLoad : MonoBehaviour {
 		p2.GetComponent<Rigidbody2D>().gravityScale = turboplayergravscale;
 		
 		gamebird.GetComponent<BirdieSpawn>().gravscale = turbobirdgravscale;
+        playermove.standardGravity = turbobirdgravscale;
 		gamebird.GetComponent<Rigidbody2D>().angularDrag = turbobirddrag;
 		gamebird.GetComponent<Rigidbody2D>().drag = turbobirddrag;
 	}
