@@ -40,10 +40,11 @@ public class playermove : MonoBehaviour {
 		serve = true;
         hitMultiplier = false;
 		groundchk = GetComponentsInChildren<Transform> ()[5];
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        standardGravity = 1;
+    }
+
+    // Update is called once per frame
+    void Update () {
 		prevState = padState;
 		padState = GamePad.GetState (player);
 

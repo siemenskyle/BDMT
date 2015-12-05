@@ -44,9 +44,10 @@ public class OnLevelLoad : MonoBehaviour {
 		p1.GetComponent<playermove>().setwait (true);
 		p2.GetComponent<playermove>().setwait (true);
 		bird.GetComponent<BirdieSpawn>().setwait (true);
-	}
 
-	public void turbo()
+    }
+
+    public void turbo()
 	{
 		p1.GetComponent<playermove>().foreward = turboforward;
 		p2.GetComponent<playermove>().foreward = turboforward;
