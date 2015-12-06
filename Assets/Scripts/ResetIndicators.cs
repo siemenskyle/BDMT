@@ -30,6 +30,7 @@ public class ResetIndicators : StateMachineBehaviour {
 		GameObject.FindGameObjectWithTag("PlayerLeft").GetComponent< playermove >().setwait(false);
 		GameObject.FindGameObjectWithTag("PlayerRight").GetComponent< playermove >().setwait(false);
 		GameObject.FindGameObjectWithTag("Bird").GetComponent< BirdieSpawn >().setwait(false);
+		GameObject.Find("straight").GetComponent<birdhit>().reset();
 	}
 
 	// OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here
