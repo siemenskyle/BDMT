@@ -42,8 +42,10 @@ public class birdhit : MonoBehaviour {
 				this.GetComponentInParent<playermove>().specialPower -= specialcost;
 				AudioSource a = coll.attachedRigidbody.gameObject.GetComponent<AudioSource>();
 				a.Play();
-			}
-			else
+                lastPlayerToHit = hitter;
+
+            }
+            else
 			{
 				// if no multiplier, then just use regular hit force
 				bird.AddForce(new Vector2(x*2, y*2));
