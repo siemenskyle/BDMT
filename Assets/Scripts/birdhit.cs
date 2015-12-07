@@ -6,6 +6,8 @@ public class birdhit : MonoBehaviour {
 	CircleCollider2D coll;
 	public float x;
 	public float y;
+	public float jumpx;
+	public float jumpy;
 	public float hitMul;
 	public int specialcost;
 	// Use this for initialization
@@ -30,25 +32,36 @@ public class birdhit : MonoBehaviour {
 
 		if (hitter != lastPlayerToHit)
 		{
+			float hitx;
+			float hity;
+
+			if(GetComponentInParent<playermove>().grounded){
+				hitx = x*2;
+				hity = y*2;
+			} else {
+				hitx = jumpx*2;
+				hity = jumpy*2;
+			}
+
 			bird.velocity = Vector2.zero;
 			// check if the multiplier is been activated by the player, if so and it can be done then activate special move
 			if (GetComponentInParent<playermove>().hitMultiplier == true && GetComponentInParent<playermove>().specialPower >= specialcost)
 			{
 				// if can multiply the hit force
-				bird.AddForce(new Vector2(hitMul * x * 2, hitMul * y * 2));
+				bird.AddForce(new Vector2(hitMul * hitx, hity));
 				
 				// if hits the bird, take the power away from the hit and play sound
+				GetComponentInParent<playermove>().supercolor();
 				this.enabled = false;
 				this.GetComponentInParent<playermove>().specialPower -= specialcost;
 				AudioSource a = coll.attachedRigidbody.gameObject.GetComponent<AudioSource>();
 				a.Play();
                 lastPlayerToHit = hitter;
-
             }
             else
 			{
 				// if no multiplier, then just use regular hit force
-				bird.AddForce(new Vector2(x*2, y*2));
+				bird.AddForce(new Vector2(hitx, hity));
 				
 				// if hits the bird, take the power away from the hit and play sound
 				if (coll.tag == "Bird")

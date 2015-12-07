@@ -12,6 +12,7 @@ public class Pause : MonoBehaviour {
 	playermove p1;
 	playermove p2;
 	BirdieSpawn bird;
+	bool start;
 
 	void getplayers (){
 		p1 = GameObject.FindGameObjectWithTag ("PlayerLeft").GetComponent< playermove > ();
@@ -27,7 +28,7 @@ public class Pause : MonoBehaviour {
 		Invoke ("getplayers", 0.5f);
 		quitbutton.SetActive (false);
 		resumebutton.SetActive (false);
-		//GameUnpause ();
+		start = true;
 	}
 
 
@@ -55,11 +56,15 @@ public class Pause : MonoBehaviour {
 	}
 
 	public void GameUnpause() {
-		GameObject.Find("SpeedSelectCanvas").SetActive(false);
+		if(start){
+			GameObject.Find("SpeedSelectCanvas").SetActive(false);
+			start = false;
+		}
 		Time.timeScale = 1;
 		quitbutton.SetActive (false);
 		resumebutton.SetActive (false);
 		dimback.SetActive (false);
+
 		p1.setwait (false);
 		p2.setwait (false);
 		bird.setwait (false);
