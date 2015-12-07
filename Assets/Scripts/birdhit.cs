@@ -90,5 +90,6 @@ public class birdhit : MonoBehaviour {
 	// Flip X force, used if on P2 side
 	public void flipx(){
 		x *= -1;
+		jumpx *= -1;
 	}
 }
